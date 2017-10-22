@@ -24,7 +24,7 @@ devtools::install_github("retowyss/appify")
 
 ## Demo
 
-Have a look at the template package on Github retowyss/appify-demo, clone it, build it and run it with OpenCPU.
+Have a look at the template package on Github [retowyss/appify-demo](https://github.com/retowyss/appify-demo), clone it, build it and run it with OpenCPU.
 
 ```
 opencpu::ocpu_start_app("appify-demo")
