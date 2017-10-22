@@ -38,3 +38,21 @@ check_inputs <- function(f, input_names) {
     invisible()
   }
 }
+
+#' Ensure Id Postfix
+#'
+#' @param postfix charchter when set by user else NULL
+#'
+#' @return the postfix or a random postfix
+#' @export
+#'
+#' @importFrom purrr is_null is_scalar_atomic
+#'
+ensure_id_postfix <- function(postfix) {
+  stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & length(postfix) > 0)
+  if(is_null(postfix)) {
+    create_id()
+  } else {
+    postfix
+  }
+}

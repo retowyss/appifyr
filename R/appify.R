@@ -4,7 +4,7 @@
 #' @param inputs Inputs to your function for which a form will be created.
 #' @param input_check Should inputs be checked against function inputs
 #'     (default = `TRUE`)?
-#' @param app_space Advanced users may wish to set the html-id postfix. The
+#' @param id_postfix Advanced users may wish to set the html-id postfix. The
 #'     default value is NULL. appify will then create a random postfix.
 #' @param plot_height Pixel value for the plot height. The default value is
 #'     600. So, the app including the form will comfortably fit on a
@@ -21,7 +21,7 @@
 #'
 appify <- function(f,
                    inputs = list(),
-                   app_space = NULL,
+                   id_postfix = NULL,
                    input_check = TRUE,
                    plot_height = 600,
                    position_flip = FALSE) {
@@ -30,13 +30,13 @@ appify <- function(f,
   input_names <- names(inputs)
 
   if(input_check) check_inputs(f, input_names)
-  if(is.null(app_space)) app_space <- create_id()
+  id_postfix <- ensure_id_postfix(id_postfix)
 
   ids <- list(
-    canvas = paste0("canvas-", app_space),
-    button = paste0("button-", app_space),
+    canvas = paste0("canvas-", id_postfix),
+    button = paste0("button-", id_postfix),
     r_fun = r_fun,
-    args = map(input_names, ~paste0("input-", ., "-", app_space)) %>%
+    args = map(input_names, ~paste0("input-", ., "-", id_postfix)) %>%
       set_names(input_names)
   )
 
@@ -46,7 +46,7 @@ appify <- function(f,
       flatten()
 
     form <- app_form(
-      id = paste0("form-", app_space),
+      id = paste0("form-", id_postfix),
       class = "well",
       button_id = ids$button,
       selectors

@@ -4,7 +4,7 @@
 \alias{appify}
 \title{Appify}
 \usage{
-appify(f, inputs = list(), app_space = NULL, input_check = TRUE,
+appify(f, inputs = list(), id_postfix = NULL, input_check = TRUE,
   plot_height = 600, position_flip = FALSE)
 }
 \arguments{
@@ -12,7 +12,7 @@ appify(f, inputs = list(), app_space = NULL, input_check = TRUE,
 
 \item{inputs}{Inputs to your function for which a form will be created.}
 
-\item{app_space}{Advanced users may wish to set the html-id postfix. The
+\item{id_postfix}{Advanced users may wish to set the html-id postfix. The
 default value is NULL. appify will then create a random postfix.}
 
 \item{input_check}{Should inputs be checked against function inputs
