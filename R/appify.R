@@ -15,9 +15,8 @@
 #' @return an app - including html and javascript
 #' @export
 #'
-#' @import purrr
-#' @import glue
-#' @import htmltools
+#' @importFrom purrr map set_names flatten
+#' @importFrom htmltools div
 #' @importFrom methods formalArgs
 #'
 appify <- function(f,
