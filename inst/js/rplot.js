@@ -3,9 +3,9 @@ $("#<<button>>").click(function(){
       <<<<args>>>>
   });
 
-  //optional
+  //Error
   req.fail(function(){
-      alert("R returned an error: " + req.responseText);
+      alert("Error in R function call: " + req.responseText);
   });
 });
 
