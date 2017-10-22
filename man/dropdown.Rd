@@ -9,6 +9,8 @@ dropdown(label = "", width = 4, opts)
 \arguments{
 \item{label}{The label to display above the input field}
 
+\item{width}{The width in bootstrap grid units (defaul 4)}
+
 \item{opts}{Either a list of (key1 = value1, ..., keyn = valuen) or a two
 column dateframe with column names "key" and "value"}
 }

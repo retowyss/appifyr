@@ -2,13 +2,15 @@
 % Please edit documentation in R/form_inputs.R
 \name{dropdown_color}
 \alias{dropdown_color}
-\title{Color Selector Dropdown}
+\title{Title}
 \usage{
 dropdown_color(label = "", width = 4)
 }
 \arguments{
-\item{label}{}
+\item{label}{The label to display above the input field}
+
+\item{width}{The width in bootstrap grid units (defaul 4)}
 }
 \description{
-Color Selector Dropdown
+Title
 }

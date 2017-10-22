@@ -2,12 +2,45 @@
 % Please edit documentation in R/form_inputs.R
 \name{number}
 \alias{number}
-\title{Number Input}
+\title{#' Input Slider
+#'
+#' @param label The label to display above the input field
+#' @param width The width in bootstrap grid units (defaul 4)
+#' @param to
+#' @param by
+#'
+#' @return
+#' @export
+#'
+#' @examples
+slider <- function(label = "", width = 4, from = 0, to = 100, by = 10) {
+  list(render = function(id) {
+    list(div(class = paste0("col-sm-", width),
+      tags$label(label),
+      div(
+        class = "input-group",
+        span(class = "input-group-addon", from),
+        tags$input(
+          id = id,
+          class = "form-control",
+          type = "range",
+          min = from,
+          max = to,
+          step = by
+        ),
+        span(class = "input-group-addon", to)
+      )
+    ))
+  })
+}
+Number Input}
 \usage{
 number(label = "", width = 4, from = 0, to = 100)
 }
 \arguments{
-\item{label}{Input label}
+\item{label}{The label to display above the input field}
+
+\item{width}{The width in bootstrap grid units (defaul 4)}
 
 \item{from}{The minimum value to accept as an input}
 
@@ -17,5 +50,36 @@ number(label = "", width = 4, from = 0, to = 100)
 html form input of type number
 }
 \description{
+#' Input Slider
+#'
+#' @param label The label to display above the input field
+#' @param width The width in bootstrap grid units (defaul 4)
+#' @param to
+#' @param by
+#'
+#' @return
+#' @export
+#'
+#' @examples
+slider <- function(label = "", width = 4, from = 0, to = 100, by = 10) {
+  list(render = function(id) {
+    list(div(class = paste0("col-sm-", width),
+      tags$label(label),
+      div(
+        class = "input-group",
+        span(class = "input-group-addon", from),
+        tags$input(
+          id = id,
+          class = "form-control",
+          type = "range",
+          min = from,
+          max = to,
+          step = by
+        ),
+        span(class = "input-group-addon", to)
+      )
+    ))
+  })
+}
 Number Input
 }
