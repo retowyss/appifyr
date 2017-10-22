@@ -12,7 +12,7 @@ Done. There is your app!
 
 ## Usage
 
-`appify` is meant to be used with OpenCPU. Include an Rmarkdown document or website in your R-package. Set the output directory in yaml to `../inst/www/`. Inlcude a R script in your package's `R` directory with a command like this `rmarkdown::render_site(input = "_app/")` assuming you've put the files for your rmarkdown website in `_app/`. Templates will become available soon. Check the demo for a working example.
+`appify` is meant to be used with OpenCPU. Include an Rmarkdown document or website in your R-package. Set the output directory in yaml to `../inst/www/`. Inlcude an R script in your package's `R` directory with a command like this `rmarkdown::render_site(input = "_app/")` assuming you've put the files for your rmarkdown website in `_app/`. Templates will become available soon. Check the demo for a working example.
 
 ## Install
 
@@ -36,7 +36,6 @@ Load the package.
 
 ```
 require(appify)
-require(ggplot2)
 ```
 
 Write your R function.
@@ -44,6 +43,7 @@ Write your R function.
 ```
 
 iris_clustering <- function(color_1, color_2, color_3) {
+  require(ggplot2)
   clusters <- kmeans(iris[, 1:4], centers = 3, nstart = 3)
   
   iris_clustered <- cbind(iris, clusters = factor(clusters$cluster))
