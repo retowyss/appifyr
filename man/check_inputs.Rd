@@ -25,7 +25,4 @@ Check the actual inputs of a function against the provided
 check_inputs(rnorm, c("n", "mean", "sd"))
 check_inputs(rnorm, c("n"))
 
-# This fails
-#check_inputs(rnorm, c("n", "mean", "q"))
-
 }
