@@ -1,5 +1,7 @@
 # appify
 
+[![Build Status](https://travis-ci.org/retowyss/appify.svg?branch=master)](https://travis-ci.org/retowyss/appify)
+
 ## Write R Get Apps!
 
 __Have you ever wished that creating an app was as easy as calling a function? Now it is!__
