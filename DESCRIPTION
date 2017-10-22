@@ -1,20 +1,22 @@
 Package: appify
 Type: Package
-Title: Easily build R-plot widgets
-Version: 0.1.0
+Title: appify: Write R Get Apps!
+Version: 0.1.1
 Author: Reto Wyss
 Maintainer: Reto Wyss <reto.wyss.ch@gmail.com>
-Description: Easily build webapps in R.
+Description: appify enables you to build apps from function definitions.
+    Output from appify can be rendered in an Rmd file or may be saved to
+    a file as html. To run apps created with appify you'll need OpenCPU.
 License: MIT
 Encoding: UTF-8
 Imports:
-    ggplot2,
     htmltools,
     magrittr,
     purrr,
     readr,
     glue,
-    tidyverse,
+    dplyr,
+    tidyr,
     methods
 LazyData: true
 RoxygenNote: 6.0.1

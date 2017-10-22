@@ -5,7 +5,7 @@
 #' @param opts Either a list of (key1 = value1, ..., keyn = valuen) or a two
 #'     column dateframe with column names "key" and "value"
 #'
-#' @return
+#' @return function(id) that will create the from dropdown with the specified id
 #' @export
 #'
 #' @importFrom magrittr %>%
@@ -14,7 +14,6 @@
 #' @importFrom htmltools tags
 #' @importFrom dplyr mutate if_else
 #'
-#' @examples
 dropdown <- function(label = "", width = 4, opts) {
   stopifnot(width %in% 1:12)
   if(class(opts) == "list") {
@@ -51,15 +50,14 @@ dropdown <- function(label = "", width = 4, opts) {
 }
 
 
-#' Title
+#' Dropdown Colors
 #'
 #' @param label The label to display above the input field
 #' @param width The width in bootstrap grid units (defaul 4)
 #'
-#' @return
+#' @return function(id) that will create the from color-dropdown with the specified id
 #' @export
 #'
-#' @examples
 dropdown_color <- function(label = "", width = 4) {
   opts <- data.frame(
     key = c(

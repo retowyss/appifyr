@@ -12,6 +12,9 @@ appify(f, inputs = list(), app_space = NULL, input_check = TRUE,
 
 \item{inputs}{Inputs to your function for which a form will be created.}
 
+\item{app_space}{Advanced users may wish to set the html-id postfix. The
+default value is NULL. appify will then create a random postfix.}
+
 \item{input_check}{Should inputs be checked against function inputs
 (default = `TRUE`)?}
 

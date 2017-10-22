@@ -11,6 +11,9 @@ check_inputs(f, input_names)
 
 \item{input_names}{Vector of input names}
 }
+\value{
+invisible or error
+}
 \description{
 Check the actual inputs of a function against the provided
     inputs for the form inputs. If inputs do not match then a
@@ -23,6 +26,6 @@ check_inputs(rnorm, c("n", "mean", "sd"))
 check_inputs(rnorm, c("n"))
 
 # This fails
-check_inputs(rnorm, c("n", "mean", "q"))
+#check_inputs(rnorm, c("n", "mean", "q"))
 
 }

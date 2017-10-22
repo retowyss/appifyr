@@ -2,7 +2,7 @@
 % Please edit documentation in R/form_inputs.R
 \name{dropdown_color}
 \alias{dropdown_color}
-\title{Title}
+\title{Dropdown Colors}
 \usage{
 dropdown_color(label = "", width = 4)
 }
@@ -11,6 +11,9 @@ dropdown_color(label = "", width = 4)
 
 \item{width}{The width in bootstrap grid units (defaul 4)}
 }
+\value{
+function(id) that will create the from color-dropdown with the specified id
+}
 \description{
-Title
+Dropdown Colors
 }

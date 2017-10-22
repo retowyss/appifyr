@@ -14,6 +14,9 @@ dropdown(label = "", width = 4, opts)
 \item{opts}{Either a list of (key1 = value1, ..., keyn = valuen) or a two
 column dateframe with column names "key" and "value"}
 }
+\value{
+function(id) that will create the from dropdown with the specified id
+}
 \description{
 Dropdown
 }

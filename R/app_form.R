@@ -10,6 +10,8 @@
 #' @return html form tag
 #' @export
 #'
+#' @importFrom htmltools tags
+#'
 app_form <- function(id, class, button_id, ...) {
   tags$form(
     id = id,
@@ -31,10 +33,11 @@ app_form <- function(id, class, button_id, ...) {
 #' @param id The html-id for the canvas
 #' @param height The height for the plot
 #'
-#' @return
+#' @return target div for the plot
 #' @export
 #'
-#' @examples
+#' @importFrom htmltools div
+#'
 canvas <- function(id, height) {
   div(
     style = paste0("height: ", height, "px;"),

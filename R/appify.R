@@ -4,6 +4,8 @@
 #' @param inputs Inputs to your function for which a form will be created.
 #' @param input_check Should inputs be checked against function inputs
 #'     (default = `TRUE`)?
+#' @param app_space Advanced users may wish to set the html-id postfix. The
+#'     default value is NULL. appify will then create a random postfix.
 #' @param plot_height Pixel value for the plot height. The default value is
 #'     600. So, the app including the form will comfortably fit on a
 #'     laptop screen.

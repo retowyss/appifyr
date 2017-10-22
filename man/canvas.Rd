@@ -11,6 +11,9 @@ canvas(id, height)
 
 \item{height}{The height for the plot}
 }
+\value{
+target div for the plot
+}
 \description{
 The canvas is the container for the plot your function returns.
 }
