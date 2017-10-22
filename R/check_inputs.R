@@ -20,9 +20,6 @@
 #' check_inputs(rnorm, c("n", "mean", "sd"))
 #' check_inputs(rnorm, c("n"))
 #'
-#' # This fails
-#' #check_inputs(rnorm, c("n", "mean", "q"))
-#'
 check_inputs <- function(f, input_names) {
   if(!all(input_names %in% formalArgs(f))) {
     function_inputs <- f %>%
