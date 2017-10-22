@@ -1,4 +1,4 @@
-# appr
+# appify
 
 Install
 
