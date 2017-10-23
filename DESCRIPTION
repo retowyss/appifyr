@@ -7,7 +7,7 @@ Maintainer: Reto Wyss <reto.wyss.ch@gmail.com>
 Description: appify enables you to build apps from function definitions.
     Output from appify can be rendered in an Rmd file or may be saved to
     a file as html. To run apps created with appify you'll need OpenCPU.
-License: Reto Wyss
+License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
     htmltools,

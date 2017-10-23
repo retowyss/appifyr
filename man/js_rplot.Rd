@@ -22,3 +22,13 @@ html script tag
 Creates Javascript that handles the communication between
     OpenCPU and the website/webapp.
 }
+\examples{
+
+js_rplot(
+ canvas = "canvas-id",
+ button = "button-id",
+ f_name = "function-name",
+ args = list(A = "A-id", B = "B-id")
+)
+
+}
