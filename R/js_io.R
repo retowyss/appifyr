@@ -16,15 +16,6 @@
 #' @importFrom readr read_file
 #' @importFrom glue collapse glue
 #'
-#' @examples
-#'
-#'js_rplot(
-#'  canvas = "canvas-id",
-#'  button = "button-id",
-#'  f_name = "function-name",
-#'  args = list(A = "A-id", B = "B-id")
-#')
-#'
 js_rplot <- function(canvas, button, f_name, args) {
   arg_str <- '<<names(args)>> : (function(){x = $("#<<args>>").val(); return(isNaN(x) ? x : parseFloat(x))})()'
   json_body <-  arg_str %>%
