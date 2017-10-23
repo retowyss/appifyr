@@ -12,7 +12,7 @@
 #'
 #' @importFrom htmltools tags
 #'
-app_form <- function(id, class, button_id, ...) {
+html_container_form <- function(id, class, button_id, ...) {
   tags$form(
     id = id,
     class = class,
@@ -26,11 +26,11 @@ app_form <- function(id, class, button_id, ...) {
   )
 }
 
-#' Canvas
+#' Container for Output
 #'
-#' @description The canvas is the container for the plot your function returns.
+#' @description TThe ouput container is the target for the r function result.
 #'
-#' @param id The html-id for the canvas
+#' @param id The html-id for the ouput container
 #' @param height The height for the plot
 #'
 #' @return target div for the plot
@@ -38,7 +38,7 @@ app_form <- function(id, class, button_id, ...) {
 #'
 #' @importFrom htmltools div
 #'
-canvas <- function(id, height) {
+html_container_output <- function(id, height) {
   div(
     style = paste0("height: ", height, "px;"),
     class = "well",

@@ -39,6 +39,24 @@ check_inputs <- function(f, input_names) {
   }
 }
 
+#' Create a Random Id
+#'
+#' @param n Length of the id (default: 32)
+#'
+#' @return a random id
+#' @export
+#'
+#' @importFrom purrr reduce
+#'
+#' @examples
+#'
+#' id <- create_id()
+#' my_id <- create_id(42)
+#'
+create_id <- function(n = 32) {
+  reduce(sample(c(letters, LETTERS), n, replace = T), paste0)
+}
+
 #' Ensure Id Postfix
 #'
 #' @param postfix charchter when set by user else NULL
@@ -49,7 +67,7 @@ check_inputs <- function(f, input_names) {
 #' @importFrom purrr is_null is_scalar_atomic
 #'
 ensure_id_postfix <- function(postfix) {
-  stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & length(postfix) > 0)
+  stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & nchar(postfix) > 0)
   if(is_null(postfix)) {
     create_id()
   } else {

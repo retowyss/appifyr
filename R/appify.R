@@ -26,38 +26,38 @@ appify <- function(f,
                    plot_height = 600,
                    position_flip = FALSE) {
 
-  r_fun <-  as.character(substitute(f))
+  f_name <-  as.character(substitute(f))
   input_names <- names(inputs)
 
   if(input_check) check_inputs(f, input_names)
   id_postfix <- ensure_id_postfix(id_postfix)
 
-  ids <- list(
+  html_ids <- list(
     canvas = paste0("canvas-", id_postfix),
     button = paste0("button-", id_postfix),
-    r_fun = r_fun,
+    f_name = f_name,
     args = map(input_names, ~paste0("input-", ., "-", id_postfix)) %>%
       set_names(input_names)
   )
 
   html <- (function() {
     selectors <- input_names %>%
-      map(function(x) {inputs[[x]](id = ids$args[x])}) %>%
+      map(function(x) {inputs[[x]](id = html_ids$args[x])}) %>%
       flatten()
 
-    form <- app_form(
+    form <- html_container_form(
       id = paste0("form-", id_postfix),
       class = "well",
-      button_id = ids$button,
+      button_id = html_ids$button,
       selectors
     )
 
     if(!position_flip) {
-      div(form, canvas(ids$canvas, height = plot_height))
+      div(form, html_container_output(html_ids$canvas, height = plot_height))
     } else {
-      div(canvas(ids$canvas, height = plot_height), form)
+      div(html_container_output(html_ids$canvas, height = plot_height), form)
     }
   })()
 
-  div(html, do.call(js_rplot, ids))
+  div(html, do.call(js_rplot, html_ids))
 }

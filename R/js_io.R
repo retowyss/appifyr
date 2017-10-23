@@ -5,7 +5,7 @@
 #'
 #' @param canvas html-id of canvas
 #' @param button html-id of submit button
-#' @param r_function R function (as character)
+#' @param f_name R function (as character)
 #' @param args list of (argname = html-id)
 #'
 #' @return html script tag
@@ -16,7 +16,7 @@
 #' @importFrom readr read_file
 #' @importFrom glue collapse glue
 #'
-js_rplot <- function(canvas, button, r_function, args) {
+js_rplot <- function(canvas, button, f_name, args) {
 
   arg_str <- '<<names(args)>> : (function(){x = $("#<<args>>").val(); return(isNaN(x) ? x : parseFloat(x))})()'
   json_body <-  arg_str %>%
@@ -29,7 +29,7 @@ js_rplot <- function(canvas, button, r_function, args) {
       .close = ">>",
       canvas = canvas,
       button = button,
-      r_fun = r_function
+      r_fun = f_name
     ) %>%
     glue(.open = "<<", .close = ">>", args = json_body) %>%
     tags$script(type = "text/javascript", charset = "utf-8")
