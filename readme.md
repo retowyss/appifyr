@@ -12,6 +12,13 @@ __Have you ever wished that creating an app was as easy as calling a function? N
 
 Done. There is your app!
 
+> How is this different from Shiny?
+
+Appify and shiny approach building apps from two different points of view. 
+
+* When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal. 
+* When you use Appify you start with R code. You create the app to visualize your function.
+
 ## Usage
 
 `appify` is meant to be used with OpenCPU. Include an Rmarkdown document or website in your R-package. Set the output directory in yaml to `../inst/www/`. Inlcude an R script in your package's `R` directory with a command like this `rmarkdown::render_site(input = "_app/")` assuming you've put the files for your rmarkdown website in `_app/`. Templates will become available soon. Check the demo for a working example.
