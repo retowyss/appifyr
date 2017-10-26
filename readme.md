@@ -35,7 +35,7 @@ install.packages("opencpu")
 Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:
 
 ```
-appify::build_app()
+appify::create_app()
 ```
 
 This will create a bunch of files. The `app` directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:
