@@ -36,11 +36,7 @@ create_app <- function() {
 #'
 to_r_code <- function() {
   app_rmd <- grab_app_rmd()
-
-  rfregex = "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
-
-  app_rmd <- grab_app_rmd()
-
+  rfregex <- "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
   roxygen_skeleton <- read_file(system.file("roxygen_skeleton/roxygen_skeleton.txt", package = "appify"))
 
   imports <- app_rmd %>%
@@ -52,7 +48,7 @@ to_r_code <- function() {
     as_vector() %>%
     unique() %>%
     setdiff("appify") %>%
-    glue("#' @import {pkg}", pkg = .) %>%
+    glue("#' @import {package}", package = .) %>%
     reduce(~ glue("{.x}\n{.y}"))
 
   r_code <- app_rmd %>%
@@ -71,8 +67,7 @@ to_r_code <- function() {
     })
 
   if(file.exists("R/your_r_code.R")) file.remove("R/your_r_code.R")
-
-  map(r_code, write_file, "R/your_r_code.R", append = T)
+  map(r_code, write_file, "R/your_r_code.R", append = TRUE)
 
   invisible()
 }
