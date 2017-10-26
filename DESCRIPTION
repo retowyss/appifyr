@@ -1,11 +1,11 @@
-Package: appify
+Package: appifyr
 Type: Package
-Title: appify: Write R Get Apps!
+Title: appifyr: Write R Get Apps!
 Version: 0.1.1
 Authors@R: person("Reto", "Wyss", role = c("aut", "cre"), email = "reto.wyss.ch@gmail.com")
-Description: appify enables you to build apps from function definitions.
+Description: appifyr enables you to build apps from function definitions.
     Output from appify can be rendered in an Rmd file or may be saved to
-    a file as html. To run apps created with appify you'll need OpenCPU.
+    a file as html. To run apps created with appifyr you'll need OpenCPU.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:

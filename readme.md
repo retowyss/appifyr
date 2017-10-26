@@ -1,4 +1,4 @@
-# appify
+# appifyr
 
 [![Build Status](https://travis-ci.org/retowyss/appify.svg?branch=master)](https://travis-ci.org/retowyss/appify)
 
@@ -23,7 +23,7 @@ Appify and shiny approach building apps from two different points of view.
 
 ```
 install.packages("devtools")
-devtools::install_github("retowyss/appify")
+devtools::install_github("retowyss/appifyr")
 ```
 
 To run the app you will need OpenCPU.
@@ -35,13 +35,13 @@ install.packages("opencpu")
 Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:
 
 ```
-appify::create_app()
+appifyr::create_app()
 ```
 
 This will create a bunch of files. The `app` directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:
 
 ```
-appify::build_app()
+appifyr::build_app()
 ```
 
 And run it with:
@@ -50,12 +50,12 @@ And run it with:
 opencpu::ocpu_start_app("MyApp")
 ```
 
-A short walkthrough and demo is on Youtube : [appify - Write R Get Apps - First Glimpse](https://www.youtube.com/watch?v=CAlBD6_T374)
+A short walkthrough and demo is on Youtube : [appifyr - Write R Get Apps - First Glimpse](https://www.youtube.com/watch?v=CAlBD6_T374)
 
 ## Example
 
 ```
-require(appify)
+require(appifyr)
 ```
 
 Write your R function.
@@ -75,7 +75,7 @@ iris_clustering <- function(color_1, color_2, color_3) {
 }
 ```
 
-`appify` has only one top level function `appify`. The function requires two inputs: 
+`appifyr`'s `appify` requires two inputs: 
 
 1. a function `f` and 
 2. a list `inputs`. 
