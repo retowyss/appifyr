@@ -14,9 +14,14 @@ Imports:
     purrr,
     readr,
     glue,
+    stringr,
+    devtools,
+    roxygen2,
+    rmarkdown,
     dplyr,
     tidyr,
-    methods
+    methods,
+    tibble
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests: testthat

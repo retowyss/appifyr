@@ -19,29 +19,40 @@ Appify and shiny approach building apps from two different points of view.
 * When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal. 
 * When you use Appify you start with R code. You create the app to visualize your function.
 
-## Usage
-
-`appify` is meant to be used with OpenCPU. Include an Rmarkdown document or website in your R-package. Set the output directory in yaml to `../inst/www/`. Inlcude an R script in your package's `R` directory with a command like this `rmarkdown::render_site(input = "_app/")` assuming you've put the files for your rmarkdown website in `_app/`. Templates will become available soon. Check the demo for a working example.
-
-## Install
+## Install & Usage
 
 ```
-install.packages("opencpu")
 install.packages("devtools")
 devtools::install_github("retowyss/appify")
 ```
 
-## Demo
-
-Have a look at the template package on Github [retowyss/appify-demo](https://github.com/retowyss/appify-demo), clone it, build it and run it with OpenCPU.
+To run the app you will need OpenCPU.
 
 ```
-opencpu::ocpu_start_app("appify-demo")
+install.packages("opencpu")
 ```
+
+Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:
+
+```
+appify::build_app()
+```
+
+This will create a bunch of files. The `app` directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:
+
+```
+appify::build_app()
+```
+
+And run it with:
+
+```
+opencpu::ocpu_start_app("MyApp")
+```
+
+A short walkthrough and demo is on Youtube : [appify - Write R Get Apps - First Glimpse](https://www.youtube.com/watch?v=CAlBD6_T374)
 
 ## Example
-
-Load the package.
 
 ```
 require(appify)
@@ -50,7 +61,6 @@ require(appify)
 Write your R function.
 
 ```
-
 iris_clustering <- function(color_1, color_2, color_3) {
   require(ggplot2)
   clusters <- kmeans(iris[, 1:4], centers = 3, nstart = 3)
