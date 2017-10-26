@@ -4,7 +4,7 @@ author: "Reto Wyss"
 ---
 
 ```{r}
-library(appify)
+library(appifyr)
 library(ggplot2)
 iris_clustering <- function(color_1, color_2, color_3) {
   clusters <- kmeans(iris[, 1:4], centers = 3, nstart = 3)

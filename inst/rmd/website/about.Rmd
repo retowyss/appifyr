@@ -4,6 +4,6 @@ author: "Reto Wyss"
 ---
 
 ```{r}
-library(appify)
+library(appifyr)
 ```
 

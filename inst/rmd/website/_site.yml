@@ -1,7 +1,7 @@
-name: "appify"
+name: "appifyr"
 output_dir: "../../inst/www/"
 navbar:
-  title: "appify"
+  title: "appifyr"
   left:
     - text: "Home"
       href: index.html
