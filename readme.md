@@ -61,10 +61,10 @@ require(appifyr)
 Write your R function.
 
 ```
+require(ggplot2)
+
 iris_clustering <- function(color_1, color_2, color_3) {
-  require(ggplot2)
   clusters <- kmeans(iris[, 1:4], centers = 3, nstart = 3)
-  
   iris_clustered <- cbind(iris, clusters = factor(clusters$cluster))
   
   ggplot(iris_clustered, aes(x = Sepal.Width, y = Petal.Width, color = clusters)) +
