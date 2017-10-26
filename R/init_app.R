@@ -23,7 +23,7 @@ create_app <- function() {
 
 #' To R Code
 #'
-#' @description Translates  Rmd code into package code.
+#' @description Translate Rmd code into package code.
 #'
 #' @return R/your_r_code.R file
 #'
