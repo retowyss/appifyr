@@ -1,4 +1,4 @@
-library(appify)
+library(appifyr)
 context("Helpers: Check Inputs")
 
 test_that("check_inputs throws errors", {

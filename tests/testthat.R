@@ -1,4 +1,4 @@
 library(testthat)
-library(appify)
+library(appifyr)
 
-test_check("appify")
+test_check("appifyr")
