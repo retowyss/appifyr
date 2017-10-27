@@ -1,6 +1,6 @@
 # appifyr
 
-[![Build Status](https://travis-ci.org/retowyss/appify.svg?branch=master)](https://travis-ci.org/retowyss/appify)
+[![Build Status](https://travis-ci.org/retowyss/appifyr.svg?branch=master)](https://travis-ci.org/retowyss/appifyr)
 
 ## Write R Get Apps!
 
