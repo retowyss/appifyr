@@ -13,7 +13,7 @@ create_app <- function() {
   dir.create("inst/www", recursive = TRUE)
   dir.create("app")
 
-  system.file("rmd/website/", package = "appify") %>%
+  system.file("rmd/website/", package = "appifyr") %>%
     file.copy("app", recursive = TRUE)
 
   if(file.exists("R/hello.R")) file.remove("R/hello.R")
@@ -37,7 +37,7 @@ create_app <- function() {
 to_r_code <- function() {
   app_rmd <- grab_app_rmd()
   rfregex <- "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
-  roxygen_skeleton <- read_file(system.file("roxygen_skeleton/roxygen_skeleton.txt", package = "appify"))
+  roxygen_skeleton <- read_file(system.file("roxygen_skeleton/roxygen_skeleton.txt", package = "appifyr"))
 
   imports <- app_rmd %>%
     map(str_extract_all, pattern = c("library\\(.*\\)", "require\\(.*\\)") ) %>%
@@ -47,7 +47,7 @@ to_r_code <- function() {
     map(str_replace, pattern = ".{1}$", replacement = "") %>%
     as_vector() %>%
     unique() %>%
-    setdiff("appify") %>%
+    setdiff("appifyr") %>%
     glue("#' @import {package}", package = .) %>%
     reduce(~ glue("{.x}\n{.y}"))
 
