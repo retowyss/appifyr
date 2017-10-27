@@ -22,7 +22,7 @@ js_rplot <- function(canvas, button, f_name, args) {
     glue(args = args, .open = "<<", .close = ">>") %>%
     collapse(sep = ",\n")
 
-  read_file(system.file("js/rplot.js", package = "appr")) %>%
+  read_file(system.file("js/rplot.js", package = "appifyr")) %>%
     glue(
       .open = "<<",
       .close = ">>",
