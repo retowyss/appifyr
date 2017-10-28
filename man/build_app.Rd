@@ -4,7 +4,7 @@
 \alias{build_app}
 \title{Build App}
 \usage{
-build_app()
+build_app(app_dir = "app/website/")
 }
 \value{
 invisible

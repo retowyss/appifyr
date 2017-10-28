@@ -6,18 +6,13 @@
 #' @importFrom magrittr %>%
 #' @importFrom readr read_file write_file
 #'
-create_app <- function() {
-
+create_app <- function(template = "website") {
   write_file("^app$\n", ".Rbuildignore", append = TRUE)
-
   dir.create("inst/www", recursive = TRUE)
   dir.create("app")
-
-  system.file("rmd/website/", package = "appifyr") %>%
+  system.file(paste0("rmd/", template, "/"), package = "appifyr") %>%
     file.copy("app", recursive = TRUE)
-
   if(file.exists("R/hello.R")) file.remove("R/hello.R")
-
   invisible()
 }
 
@@ -36,15 +31,14 @@ create_app <- function() {
 #'
 to_r_code <- function() {
   app_rmd <- grab_app_rmd()
-  rfregex <- "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
-  roxygen_skeleton <- read_file(system.file("roxygen_skeleton/roxygen_skeleton.txt", package = "appifyr"))
+
+  roxygen_skeleton <- read_file(system.file("txt/roxygen_skeleton.txt", package = "appifyr"))
 
   imports <- app_rmd %>%
-    map(str_extract_all, pattern = c("library\\(.*\\)", "require\\(.*\\)") ) %>%
+    map(extract_pkgs) %>%
     flatten() %>%
     flatten() %>%
-    map(str_replace, pattern = "^.{8}", replacement = "") %>%
-    map(str_replace, pattern = ".{1}$", replacement = "") %>%
+    map(extract_pkg_names) %>%
     as_vector() %>%
     unique() %>%
     setdiff("appifyr") %>%
@@ -52,7 +46,7 @@ to_r_code <- function() {
     reduce(~ glue("{.x}\n{.y}"))
 
   r_code <- app_rmd %>%
-    map(str_extract_all, pattern = rfregex) %>%
+    map(extract_r_functions) %>%
     flatten() %>%
     flatten() %>%
     as_vector() %>%
@@ -81,8 +75,8 @@ to_r_code <- function() {
 #' @importFrom devtools document install
 #' @import roxygen2
 #'
-build_app <- function() {
-  render_site(input = 'app/website/')
+build_app <- function(app_dir = "app/website/") {
+  render_site(input = app_dir)
   to_r_code()
   if(file.exists("NAMESPACE")) file.remove("NAMESPACE")
   document(roclets=c('rd', 'collate', 'namespace', 'vignette'))
@@ -97,7 +91,47 @@ build_app <- function() {
 #' @importFrom readr read_file
 #' @importFrom purrr map
 #'
-grab_app_rmd <- function() {
-  app_dir <- "app/website/"
+grab_app_rmd <- function(app_dir = "app/website/") {
   map(paste0(app_dir, dir(app_dir, pattern = ".*\\.Rmd$")), read_file)
+}
+
+
+#' Extract R functions from Rmd
+#'
+#' @param rmd
+#'
+#' @return list of R functions
+#' @export
+#'
+#' @importFrom stringr str_extract_all
+#'
+extract_r_functions <- function(rmd) {
+  rfrx <- "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
+  str_extract_all(rmd, pattern = rfrx)
+}
+
+#' Extract the package name
+#'
+#' @param pkgs "library(pkg)" or "require(pkg)"
+#'
+#' @return a package name, e.g. dplyr
+#' @export
+#'
+#' @importFrom stringr str_replace
+#'
+extract_pkg_names <- function(pkg) {
+  pkg <- str_replace(pkg, pattern = "^.{8}", replacement = "")
+  str_replace(pkg, pattern = ".{1}$", replacement = "")
+}
+
+
+#' Extract packages
+#'
+#' @param rmd
+#'
+#' @return require(pkg) or library(pkg)
+#' @export
+#'
+exctract_pkgs <- function(rmd) {
+  str_extract_all(rmd, pattern = c("library\\(.*\\)", "require\\(.*\\)"))
 }

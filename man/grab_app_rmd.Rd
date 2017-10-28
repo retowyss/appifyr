@@ -4,7 +4,7 @@
 \alias{grab_app_rmd}
 \title{Grab App Rmd}
 \usage{
-grab_app_rmd()
+grab_app_rmd(app_dir = "app/website/")
 }
 \value{
 list of Rmd contents

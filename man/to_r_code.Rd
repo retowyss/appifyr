@@ -10,5 +10,5 @@ to_r_code()
 R/your_r_code.R file
 }
 \description{
-Translates  Rmd code into package code.
+Translate Rmd code into package code.
 }
