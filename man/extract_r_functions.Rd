@@ -7,7 +7,7 @@
 extract_r_functions(rmd)
 }
 \arguments{
-\item{rmd}{}
+\item{rmd}{Rmd as character}
 }
 \value{
 list of R functions

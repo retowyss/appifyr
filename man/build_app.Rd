@@ -6,6 +6,9 @@
 \usage{
 build_app(app_dir = "app/website/")
 }
+\arguments{
+\item{app_dir}{path to the app (default: app/website/)}
+}
 \value{
 invisible
 }

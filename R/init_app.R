@@ -1,5 +1,7 @@
 #' Create App
 #'
+#' @param template template to build the app with (default: website)
+#'
 #' @return project directory is set up
 #' @export
 #'
@@ -68,6 +70,8 @@ to_r_code <- function() {
 
 #' Build App
 #'
+#' @param app_dir path to the app (default: app/website/)
+#'
 #' @return invisible
 #' @export
 #'
@@ -86,6 +90,8 @@ build_app <- function(app_dir = "app/website/") {
 
 #' Grab App Rmd
 #'
+#' @param app_dir path to the app (default: app/website/)
+#'
 #' @return list of Rmd contents
 #'
 #' @importFrom readr read_file
@@ -98,7 +104,7 @@ grab_app_rmd <- function(app_dir = "app/website/") {
 
 #' Extract R functions from Rmd
 #'
-#' @param rmd
+#' @param rmd Rmd as character
 #'
 #' @return list of R functions
 #' @export
@@ -112,7 +118,7 @@ extract_r_functions <- function(rmd) {
 
 #' Extract the package name
 #'
-#' @param pkgs "library(pkg)" or "require(pkg)"
+#' @param pkg "library(pkg)" or "require(pkg)"
 #'
 #' @return a package name, e.g. dplyr
 #' @export
@@ -127,7 +133,7 @@ extract_pkg_names <- function(pkg) {
 
 #' Extract packages
 #'
-#' @param rmd
+#' @param rmd Rmd as character
 #'
 #' @return require(pkg) or library(pkg)
 #' @export

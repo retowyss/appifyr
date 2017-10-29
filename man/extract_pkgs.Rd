@@ -7,7 +7,7 @@
 extract_pkgs(rmd)
 }
 \arguments{
-\item{rmd}{}
+\item{rmd}{Rmd as character}
 }
 \value{
 require(pkg) or library(pkg)

@@ -7,7 +7,7 @@
 extract_pkg_names(pkg)
 }
 \arguments{
-\item{pkgs}{"library(pkg)" or "require(pkg)"}
+\item{pkg}{"library(pkg)" or "require(pkg)"}
 }
 \value{
 a package name, e.g. dplyr

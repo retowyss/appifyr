@@ -6,6 +6,9 @@
 \usage{
 create_app(template = "website")
 }
+\arguments{
+\item{template}{template to build the app with (default: website)}
+}
 \value{
 project directory is set up
 }
