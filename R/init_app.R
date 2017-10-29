@@ -132,6 +132,6 @@ extract_pkg_names <- function(pkg) {
 #' @return require(pkg) or library(pkg)
 #' @export
 #'
-exctract_pkgs <- function(rmd) {
+extract_pkgs <- function(rmd) {
   str_extract_all(rmd, pattern = c("library\\(.*\\)", "require\\(.*\\)"))
 }

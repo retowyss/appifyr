@@ -4,7 +4,7 @@
 \alias{create_app}
 \title{Create App}
 \usage{
-create_app()
+create_app(template = "website")
 }
 \value{
 project directory is set up
