@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>appify: Write R Get Apps! • appify</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>appifyr: Write R Get Apps! • appifyr</title>
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -15,7 +15,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-vignette">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">appify</a>
+      <a class="navbar-brand" href="index.html">appifyr</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -38,7 +38,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/retowyss/appifyr">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -48,25 +55,153 @@
 
       
       </header><div class="row">
-  <div class="contents col-md-9">
-    appify enables you to build apps from function definitions.
-    Output from appify can be rendered in an Rmd file or may be saved to
-    a file as html. To run apps created with appify you'll need OpenCPU.
+  <div class="col-md-9">
+    
+
+    
+    
+<div class="contents">
+<div id="appifyr" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#appifyr" class="anchor"></a>appifyr</h1></div>
+
+<div id="write-r-get-apps" class="section level2">
+<h2 class="hasAnchor">
+<a href="#write-r-get-apps" class="anchor"></a>Write R Get Apps!</h2>
+<p><strong>Have you ever wished that creating an app was as easy as calling a function? Now it is!</strong></p>
+<ol style="list-style-type: decimal">
+<li>Write an R function,</li>
+<li>pass it to <code>appify</code>,</li>
+<li>specify the inputs.</li>
+</ol>
+<p>Done. There is your app!</p>
+<blockquote>
+<p>How is this different from Shiny?</p>
+</blockquote>
+<p>Appify and shiny approach building apps from two different points of view.</p>
+<ul>
+<li>When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal.</li>
+<li>When you use Appify you start with R code. You create the app to visualize your function.</li>
+</ul>
+</div>
+<div id="install-usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install-usage" class="anchor"></a>Install &amp; Usage</h2>
+<pre><code>install.packages("devtools")
+devtools::install_github("retowyss/appifyr")</code></pre>
+<p>To run the app you will need OpenCPU.</p>
+<pre><code>install.packages("opencpu")</code></pre>
+<p>Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:</p>
+<pre><code><a href="http://www.rdocumentation.org/packages/appifyr/topics/create_app">appifyr::create_app()</a></code></pre>
+<p>This will create a bunch of files. The <code>app</code> directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:</p>
+<pre><code><a href="http://www.rdocumentation.org/packages/appifyr/topics/build_app">appifyr::build_app()</a></code></pre>
+<p>And run it with:</p>
+<pre><code><a href="http://www.rdocumentation.org/packages/opencpu/topics/server">opencpu::ocpu_start_app("MyApp")</a></code></pre>
+<p>A short walkthrough and demo is on Youtube : <a href="https://www.youtube.com/watch?v=CAlBD6_T374">appifyr - Write R Get Apps - First Glimpse</a></p>
+</div>
+<div id="example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#example" class="anchor"></a>Example</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(appifyr)</code></pre></div>
+<pre><code>## Loading required package: appifyr</code></pre>
+<p>Write your R function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(ggplot2)</code></pre></div>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iris_clustering &lt;-<span class="st"> </span><span class="cf">function</span>(color_<span class="dv">1</span>, color_<span class="dv">2</span>, color_<span class="dv">3</span>) {
+  clusters &lt;-<span class="st"> </span><span class="kw">kmeans</span>(iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">centers =</span> <span class="dv">3</span>, <span class="dt">nstart =</span> <span class="dv">3</span>)
+  iris_clustered &lt;-<span class="st"> </span><span class="kw">cbind</span>(iris, <span class="dt">clusters =</span> <span class="kw">factor</span>(clusters<span class="op">$</span>cluster))
+  
+  <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(iris_clustered, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Petal.Width, <span class="dt">color =</span> clusters)) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_point">geom_point</a></span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">scale_color_manual</a></span>(<span class="dt">values =</span> <span class="kw">c</span>(color_<span class="dv">1</span>, color_<span class="dv">2</span>, color_<span class="dv">3</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Kmeans Clustering"</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggtheme">theme_minimal</a></span>()
+}</code></pre></div>
+<p><code>appifyr</code>’s <code>appify</code> requires two inputs:</p>
+<ol style="list-style-type: decimal">
+<li>a function <code>f</code> and</li>
+<li>a list <code>inputs</code>.</li>
+</ol>
+<p>That’s it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/appify.html">appify</a></span>(
+  <span class="dt">f =</span> iris_clustering, 
+  <span class="dt">inputs =</span> <span class="kw">list</span>(
+    <span class="dt">color_1 =</span> <span class="kw"><a href="reference/dropdown_color.html">dropdown_color</a></span>(<span class="st">"Color 1"</span>),
+    <span class="dt">color_2 =</span> <span class="kw"><a href="reference/dropdown_color.html">dropdown_color</a></span>(<span class="st">"Color 2"</span>),
+    <span class="dt">color_3 =</span> <span class="kw"><a href="reference/dropdown_color.html">dropdown_color</a></span>(<span class="st">"Color 3"</span>)
+  )
+)</code></pre></div>
+<div>
+<div>
+<form id="form-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="well">
+<fieldset class="row">
+<div class="col-sm-4">
+<label>Color 1</label>
+<select id="input-color_1-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<option value="#673AB7">Deep Purple</option>
+<option value="#F44336">Red</option>
+<option value="#4CAF50">Green</option>
+<option value="#FF5722">Deep Orange</option>
+<option value="#9E9E9E">Grey</option>
+<option value="#000000">Black</option></select>
+</div>
+<div class="col-sm-4">
+<label>Color 2</label>
+<select id="input-color_2-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<option value="#673AB7">Deep Purple</option>
+<option value="#F44336">Red</option>
+<option value="#4CAF50">Green</option>
+<option value="#FF5722">Deep Orange</option>
+<option value="#9E9E9E">Grey</option>
+<option value="#000000">Black</option></select>
+</div>
+<div class="col-sm-4">
+<label>Color 3</label>
+<select id="input-color_3-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<option value="#673AB7">Deep Purple</option>
+<option value="#F44336">Red</option>
+<option value="#4CAF50">Green</option>
+<option value="#FF5722">Deep Orange</option>
+<option value="#9E9E9E">Grey</option>
+<option value="#000000">Black</option></select>
+</div>
+</fieldset>
+<button id="button-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="btn btn-primary" type="button">Submit</button>
+</form>
+<div style="height: 600px;" class="well" id="canvas-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj"></div>
+</div>
+<script type="text/javascript" charset="utf-8">$("#button-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").click(function(){
+var req = $("#canvas-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").rplot("iris_clustering", {
+    color_1 : (function(){x = $("#input-color_1-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+color_2 : (function(){x = $("#input-color_2-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+color_3 : (function(){x = $("#input-color_3-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})()
+});
+
+//Error
+req.fail(function(){
+    alert("Error in R function call: " + req.responseText);
+});
+});</script>
+</div>
+</div>
+</div>
+</div>
   </div>
 
-  <div class="col-md-3" id="sidebar">
-    <h2>License</h2>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2 class="hasAnchor">
+<a href="#sidebar" class="anchor"></a>License</h2>
+<p><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE.html">LICENSE</a></p>
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Reto Wyss <br><small class="roles"> Author, maintainer </small> </li>
+<li>Reto Wyss <br><small class="roles"> Author, maintainer, copyright holder </small> </li>
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://opensource.org/licenses/mit-license.php">MIT</a></li>
-<li><a href="LICENSE.html">LICENSE</a></li>
+<li><a href="https://travis-ci.org/retowyss/appifyr"><img src="https://travis-ci.org/retowyss/appifyr.svg?branch=master" alt="Build Status"></a></li>
 </ul>
 </div>
+
 </div>
 
 

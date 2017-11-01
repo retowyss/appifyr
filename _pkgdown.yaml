@@ -1,0 +1,12 @@
+url: http://retowyss.github.io/appifyr
+
+template:
+  params:
+    bootswatch: united
+
+navbar:
+  title: "appifyr"
+  type: default
+  right:
+    - icon: fa-github
+      href: https://github.com/retowyss/appifyr

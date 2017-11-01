@@ -6,13 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Appify — appify • appify</title>
+<title>Appify — appify • appifyr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -47,7 +47,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">appify</a>
+      <a class="navbar-brand" href="../index.html">appifyr</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -63,7 +63,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/retowyss/appifyr">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -90,11 +95,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>f</th>
-      <td><p>A function from your package or written in your Rmd document.</p></td>
+      <td><p>A function from your package or a function written in your Rmd document.</p></td>
     </tr>
     <tr>
       <th>inputs</th>
-      <td><p>Inputs to your function for which a form will be created.</p></td>
+      <td><p>Inputs to your function. A form will be created for them.</p></td>
     </tr>
     <tr>
       <th>id_postfix</th>
@@ -104,7 +109,7 @@ default value is NULL. appify will then create a random postfix.</p></td>
     <tr>
       <th>input_check</th>
       <td><p>Should inputs be checked against function inputs
-(default = `TRUE`)?</p></td>
+(default: TRUE)?</p></td>
     </tr>
     <tr>
       <th>plot_height</th>
@@ -121,9 +126,58 @@ input form.</p></td>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>an app - including html and javascript</p>
+    <p>html and javascript code</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Appify returns html. When included in a Rmarkdown document this will be</span>
+<span class='co'># display as a form and a canvas.</span>
+<span class='no'>rnorm_plot</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>n</span>, <span class='no'>mean</span>, <span class='no'>sd</span>) {
+  <span class='fu'>plot</span>(<span class='fu'>rnorm</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='no'>n</span>, <span class='kw'>mean</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>sd</span> <span class='kw'>=</span> <span class='no'>sd</span>))
+}
+
+<span class='fu'>appify</span>(
+  <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>rnorm_plot</span>,
+  <span class='kw'>inputs</span> <span class='kw'>=</span> <span class='fu'>list</span>(
+    <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='number.html'>number</a></span>(<span class='st'>"Sample Size"</span>),
+    <span class='kw'>mean</span> <span class='kw'>=</span> <span class='fu'><a href='number.html'>number</a></span>(<span class='st'>"Distribution Mean"</span>),
+    <span class='kw'>sd</span> <span class='kw'>=</span> <span class='fu'><a href='number.html'>number</a></span>(<span class='st'>"Distribution Standard Deviation"</span>)
+  )
+)</div><div class='output co'>#&gt; &lt;div&gt;
+#&gt;   &lt;div&gt;
+#&gt;     &lt;form id="form-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl" class="well"&gt;
+#&gt;       &lt;fieldset class="row"&gt;
+#&gt;         &lt;div class="col-sm-4"&gt;
+#&gt;           &lt;label&gt;Sample Size&lt;/label&gt;
+#&gt;           &lt;input id="input-n-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl" class="form-control" type="number" min="0" max="100"/&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="col-sm-4"&gt;
+#&gt;           &lt;label&gt;Distribution Mean&lt;/label&gt;
+#&gt;           &lt;input id="input-mean-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl" class="form-control" type="number" min="0" max="100"/&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="col-sm-4"&gt;
+#&gt;           &lt;label&gt;Distribution Standard Deviation&lt;/label&gt;
+#&gt;           &lt;input id="input-sd-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl" class="form-control" type="number" min="0" max="100"/&gt;
+#&gt;         &lt;/div&gt;
+#&gt;       &lt;/fieldset&gt;
+#&gt;       &lt;button id="button-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl" class="btn btn-primary" type="button"&gt;Submit&lt;/button&gt;
+#&gt;     &lt;/form&gt;
+#&gt;     &lt;div style="height: 600px;" class="well" id="canvas-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl"&gt;&lt;/div&gt;
+#&gt;   &lt;/div&gt;
+#&gt;   &lt;script type="text/javascript" charset="utf-8"&gt;$("#button-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl").click(function(){
+#&gt; var req = $("#canvas-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl").rplot("rnorm_plot", {
+#&gt;     n : (function(){x = $("#input-n-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+#&gt; mean : (function(){x = $("#input-mean-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+#&gt; sd : (function(){x = $("#input-sd-eRFiayzpMOTjbqukuduYpJMkYMcBKJbl").val(); return(isNaN(x) ? x : parseFloat(x))})()
+#&gt; });
+#&gt; 
+#&gt; //Error
+#&gt; req.fail(function(){
+#&gt;     alert("Error in R function call: " + req.responseText);
+#&gt; });
+#&gt; });&lt;/script&gt;
+#&gt; &lt;/div&gt;</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -131,7 +185,9 @@ input form.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

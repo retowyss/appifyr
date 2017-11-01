@@ -1,9 +1,9 @@
 #' Appify
 #'
-#' @param f A function from your package or written in your Rmd document.
-#' @param inputs Inputs to your function for which a form will be created.
+#' @param f A function from your package or a function written in your Rmd document.
+#' @param inputs Inputs to your function. A form will be created for them.
 #' @param input_check Should inputs be checked against function inputs
-#'     (default = `TRUE`)?
+#'     (default: TRUE)?
 #' @param id_postfix Advanced users may wish to set the html-id postfix. The
 #'     default value is NULL. appify will then create a random postfix.
 #' @param plot_height Pixel value for the plot height. The default value is
@@ -12,12 +12,28 @@
 #' @param position_flip By default (FALSE) the plot will be placed below the
 #'     input form.
 #'
-#' @return an app - including html and javascript
+#' @return html and javascript code
 #' @export
 #'
 #' @importFrom purrr map set_names flatten
 #' @importFrom htmltools div
 #' @importFrom methods formalArgs
+#'
+#' @examples
+#' # Appify returns html. When included in a Rmarkdown document this will be
+#' # display as a form and a canvas.
+#' rnorm_plot <- function(n, mean, sd) {
+#'   plot(rnorm(n = n, mean = mean, sd = sd))
+#' }
+#'
+#' appify(
+#'   f = rnorm_plot,
+#'   inputs = list(
+#'     n = number("Sample Size"),
+#'     mean = number("Distribution Mean"),
+#'     sd = number("Distribution Standard Deviation")
+#'   )
+#' )
 #'
 appify <- function(f,
                    inputs = list(),

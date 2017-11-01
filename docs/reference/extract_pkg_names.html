@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ensure Id Postfix — ensure_id_postfix • appifyr</title>
+<title>Extract the package name — extract_pkg_names • appifyr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -80,27 +80,27 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Ensure Id Postfix</h1>
+    <h1>Extract the package name</h1>
     </div>
 
     
-    <p>Ensure Id Postfix</p>
+    <p>Extract the package name</p>
     
 
-    <pre class="usage"><span class='fu'>ensure_id_postfix</span>(<span class='no'>postfix</span>)</pre>
+    <pre class="usage"><span class='fu'>extract_pkg_names</span>(<span class='no'>pkg</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>postfix</th>
-      <td><p>charchter when set by user else NULL</p></td>
+      <th>pkg</th>
+      <td><p>"library(pkg)" or "require(pkg)"</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>the postfix or a random postfix</p>
+    <p>a package name, e.g. dplyr</p>
     
 
   </div>

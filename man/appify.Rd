@@ -8,15 +8,15 @@ appify(f, inputs = list(), id_postfix = NULL, input_check = TRUE,
   plot_height = 600, position_flip = FALSE)
 }
 \arguments{
-\item{f}{A function from your package or written in your Rmd document.}
+\item{f}{A function from your package or a function written in your Rmd document.}
 
-\item{inputs}{Inputs to your function for which a form will be created.}
+\item{inputs}{Inputs to your function. A form will be created for them.}
 
 \item{id_postfix}{Advanced users may wish to set the html-id postfix. The
 default value is NULL. appify will then create a random postfix.}
 
 \item{input_check}{Should inputs be checked against function inputs
-(default = `TRUE`)?}
+(default: TRUE)?}
 
 \item{plot_height}{Pixel value for the plot height. The default value is
 600. So, the app including the form will comfortably fit on a
@@ -26,8 +26,25 @@ laptop screen.}
 input form.}
 }
 \value{
-an app - including html and javascript
+html and javascript code
 }
 \description{
 Appify
+}
+\examples{
+# Appify returns html. When included in a Rmarkdown document this will be
+# display as a form and a canvas.
+rnorm_plot <- function(n, mean, sd) {
+  plot(rnorm(n = n, mean = mean, sd = sd))
+}
+
+appify(
+  f = rnorm_plot,
+  inputs = list(
+    n = number("Sample Size"),
+    mean = number("Distribution Mean"),
+    sd = number("Distribution Standard Deviation")
+  )
+)
+
 }

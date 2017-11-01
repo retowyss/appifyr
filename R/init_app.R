@@ -44,7 +44,7 @@ to_r_code <- function() {
     as_vector() %>%
     unique() %>%
     setdiff("appifyr") %>%
-    union("stats", "datasets") %>%
+    union(c("stats", "datasets")) %>%
     glue("#' @import {package}", package = .) %>%
     reduce(~ glue("{.x}\n{.y}"))
 
