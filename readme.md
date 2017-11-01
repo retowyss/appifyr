@@ -49,8 +49,8 @@ And run it with:
 ```
 opencpu::ocpu_start_app("MyApp")
 ```
-
-A short walkthrough and demo is on Youtube : [appifyr - Write R Get Apps - First Glimpse](https://www.youtube.com/watch?v=CAlBD6_T374)
+1. [Documentation](https://retowyss.github.io/appifyr/)
+2. A short walkthrough and demo is on Youtube : [appifyr - Write R Get Apps - First Glimpse](https://www.youtube.com/watch?v=CAlBD6_T374)
 
 ## Example
 
