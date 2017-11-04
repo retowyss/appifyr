@@ -85,11 +85,11 @@ That's it.
 
 ```
 appify(
-  f = iris_clustering, 
-  inputs = list(
-    color_1 = dropdown_color("Color 1"),
-    color_2 = dropdown_color("Color 2"),
-    color_3 = dropdown_color("Color 3")
+  f = "iris_clustering", 
+  inps = list(
+    color_1 = inp_dropdown(1:12),
+    color_2 = inp_dropdown(1:12),
+    color_3 = inp_dropdown(1:12)
   )
 )
 ```

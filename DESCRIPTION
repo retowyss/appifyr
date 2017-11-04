@@ -8,6 +8,7 @@ Description: appifyr enables you to build apps from function definitions.
     a file as html. To run apps created with appifyr you'll need OpenCPU.
 License: MIT + file LICENSE
 Encoding: UTF-8
+Depends: R (>= 3.0.0)
 Imports:
     htmltools,
     magrittr,
@@ -21,8 +22,7 @@ Imports:
     dplyr,
     tidyr,
     methods,
-    tibble,
-    rlang
+    tibble
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests:

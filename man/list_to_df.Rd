@@ -15,3 +15,6 @@ a dataframe
 \description{
 Convert Key Value List To Dataframe
 }
+\examples{
+appifyr:::list_to_df(list(key1 = "value1", "key2" = "value2"))
+}

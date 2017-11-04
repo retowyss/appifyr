@@ -15,3 +15,7 @@ a vector
 \description{
 Convert Factor To Character
 }
+\examples{
+appifyr:::factor_to_chr(factor(c("A", "B")))
+appifyr:::factor_to_chr(factor(1:12))
+}

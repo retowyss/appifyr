@@ -1,3 +1,203 @@
+#' Create App From Function and Inputs
+#'
+#' @param f a function
+#' @param inps a set of inputs
+#' @param id html identifier
+#'
+#' @return html
+#' @export
+#'
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#' @importFrom htmltools tags
+#'
+appify <- function(f, inps, id = NULL) {
+  id <- ensure_id_postfix(id)
+  inps <- set_label(inps)
+
+  form <- inps %>%
+    imap(~fg_to_html(g = .x, id = paste0(.y, "-",id)))
+
+  form <- html_container_form(
+    id = paste0("form-", id),
+    button_id = paste0("submit-", id),
+    class = "well",
+    form
+  )
+
+  out <- html_container_output(id = paste0("target"), height = 600)
+
+  jscript <- tags$script(
+    type = "text/javascript",
+    charset = "utf-8",
+    rplot(
+      id = id,
+      rf = f,
+      json = args_to_json(names(inps), id)
+    )
+  )
+
+  tags$div(
+    form,
+    out,
+    jscript
+  )
+}
+
+#' App Form
+#'
+#' @description This function creates the html from container.
+#'
+#' @param id The html-id for the form.
+#' @param class The css classes to be applied to the form tag
+#' @param button_id The html-id for the button
+#' @param ... Any  number of html tags to be inserted into the form body.
+#'
+#' @return html form tag
+#' @export
+#'
+#' @importFrom htmltools tags
+#'
+html_container_form <- function(id, class, button_id, ...) {
+  tags$form(
+    id = id,
+    class = class,
+    tags$fieldset(class = "row", list(...)),
+    tags$button(
+      id = button_id,
+      class = "btn btn-primary",
+      type = "button",
+      "Submit"
+    )
+  )
+}
+
+#' Container for Output
+#'
+#' @description TThe ouput container is the target for the r function result.
+#'
+#' @param id The html-id for the ouput container
+#' @param height The height for the plot
+#'
+#' @return target div for the plot
+#' @export
+#'
+#' @importFrom htmltools div
+#'
+html_container_output <- function(id, height) {
+  div(
+    style = paste0("height: ", height, "px;"),
+    class = "well",
+    id = id
+  )
+}
+
+
+
+#' Title
+#'
+#' @param g a form group list
+#' @param id an id
+#'
+#' @return
+#'
+fg_to_html <- function(g, id) {
+  f <- switch (g$fg,
+    "text" = fg_text,
+    "number" = fg_number,
+    "dropdown" = fg_dropdown,
+    stop()
+  )
+  do.call(f, args = list(g = g, id = id))
+}
+
+#' Translate Form Group List to HTML
+#'
+#' @inheritParams fg_text
+#'
+#' @return html
+#'
+#' @importFrom htmltools tags
+#'
+fg_number <- function(g, id) {
+  input <- tags$input(
+    id    = id,
+    class = "form-control",
+    type  = "number",
+    min   = g$opts$from,
+    max   = g$opts$to
+  )
+  label <- tags$label(g$label)
+  tags$div(
+    class = paste0("col-sm-", g$width),
+    label,
+    input
+  )
+}
+
+#' Translate Form Group List to HTML
+#'
+#' @inheritParams fg_text
+#'
+#' @return html
+#'
+#' @importFrom purrr pmap
+#' @importFrom htmltools tags
+#'
+fg_dropdown <- function(g, id) {
+  input <- tags$select(
+    id = id,
+    class = "form-group form-control",
+    pmap(g$opts, function(value, key) {
+      tags$option(value = value, key)
+    })
+  )
+  label <- tags$label(g$label)
+  tags$div(
+    class = paste0("col-sm-", g$width),
+    label,
+    input
+  )
+}
+
+#' Translate Form Group List to HTML
+#'
+#' @param g a form group list
+#' @param id an id
+#'
+#' @return html
+#'
+#' @importFrom htmltools tags
+#'
+fg_text<- function(g, id) {
+  input <- tags$input(
+    id    = id,
+    class = "form-control",
+    type  = "text"
+  )
+  label <- tags$label(g$label)
+  tags$div(
+    class = paste0("col-sm-", g$width),
+    label,
+    input
+  )
+}
+
+#' Set The Form Group Label
+#'
+#' @param inps a list of inputs
+#'
+#' @return form group list with labels
+#'
+set_label <- function(inps) {
+  for (n in names(inps)) {
+    if (is.null(inps[[n]][["label"]])) {
+      inps[[n]][["label"]] <- n
+    }
+  }
+  inps
+}
+
 #' Text Form Group
 #'
 #' @param label label for the form input - this will default to display the
@@ -104,6 +304,8 @@ inp_number <- function(from = 0,
 #' @importFrom dplyr bind_rows
 #' @importFrom tibble tibble
 #'
+#' @examples
+#' appifyr:::list_to_df(list(key1 = "value1", "key2" = "value2"))
 list_to_df <- function(x) {
   x %>%
     imap(function(.x, .y) {
@@ -147,12 +349,14 @@ df_to_df <- function(x) {
 #' @return a vector
 #'
 #' @importFrom dplyr if_else
-#' @importFrom rlang as_double
 #'
+#' @examples
+#' appifyr:::factor_to_chr(factor(c("A", "B")))
+#' appifyr:::factor_to_chr(factor(1:12))
 factor_to_chr <- function(x) {
   if(is.factor(x) | is.character(x)) {
     as.character(x)
   } else {
-    as_double(x)
+    as.double(x)
   }
 }

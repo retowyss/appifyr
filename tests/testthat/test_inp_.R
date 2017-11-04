@@ -1,4 +1,80 @@
 library(appifyr)
+context("Inputs To HTML")
+
+test_that("appify correct", {
+  args_1 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_dropdown(1:12),
+      m = inp_text(label = "Text")
+    ),
+    id = "foo-id"
+  )
+  args_2 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_dropdown(data.frame(key = 1:12, value = 1:12)),
+      m = inp_text(label = "Text")
+    ),
+    id = "foo-id"
+  )
+  expect_equal(
+    do.call(appify, args_1),
+    do.call(appify, args_2)
+  )
+
+  args_1 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_dropdown(data.frame(key = c("q", "i"), value = 1:2))
+    ),
+    id = "foo-id"
+  )
+  args_2 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_dropdown(list(q = 1, i = 2))
+    ),
+    id = "foo-id"
+  )
+  expect_equal(
+    do.call(appify, args_1),
+    do.call(appify, args_2)
+  )
+
+  args_1 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_number()
+    ),
+    id = "foo-id"
+  )
+  args_2 <- list(
+    f = "rnorm",
+    inps <- list(
+      n = inp_number(from = 0, to = 100)
+    ),
+    id = "foo-id"
+  )
+  expect_equal(
+    do.call(appify, args_1),
+    do.call(appify, args_2)
+  )
+})
+
+
+test_that("set_label correct", {
+  inps <- list(
+    n = list(label = NULL),
+    m = list(label = "A")
+  )
+  outs <- list(
+    n = list(label = "n"),
+    m = list(label = "A")
+  )
+  expect_equal(appifyr:::set_label(inps), outs)
+})
+
 context("Text Form Group")
 
 test_that("inp_text errors", {

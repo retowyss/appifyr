@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert Key Value List To Dataframe — list_to_df • appifyr</title>
+<title>Translate Form Group List to HTML — fg_text • appifyr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -80,35 +80,33 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert Key Value List To Dataframe</h1>
+    <h1>Translate Form Group List to HTML</h1>
     </div>
 
     
-    <p>Convert Key Value List To Dataframe</p>
+    <p>Translate Form Group List to HTML</p>
     
 
-    <pre class="usage"><span class='fu'>list_to_df</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>fg_text</span>(<span class='no'>g</span>, <span class='no'>id</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>a list</p></td>
+      <th>g</th>
+      <td><p>a form group list</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>an id</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a dataframe</p>
+    <p>html</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>list_to_df</span>(<span class='fu'>list</span>(<span class='kw'>key1</span> <span class='kw'>=</span> <span class='st'>"value1"</span>, <span class='st'>"key2"</span> <span class='kw'>=</span> <span class='st'>"value2"</span>))</div><div class='output co'>#&gt; # A tibble: 2 x 2
-#&gt;     key  value
-#&gt;   &lt;chr&gt;  &lt;chr&gt;
-#&gt; 1  key1 value1
-#&gt; 2  key2 value2</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -116,9 +114,7 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+          </ul>
 
   </div>
 </div>
