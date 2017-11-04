@@ -21,7 +21,10 @@ Imports:
     dplyr,
     tidyr,
     methods,
-    tibble
+    tibble,
+    rlang
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: testthat
+Suggests:
+    testthat,
+    covr

@@ -1,8 +1,8 @@
-url: http://retowyss.github.io/appifyr
+url: //retowyss.github.io/appifyr
 
 template:
   params:
-    bootswatch: united
+    bootswatch: cerulean
 
 navbar:
   title: "appifyr"

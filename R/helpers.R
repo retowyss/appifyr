@@ -41,6 +41,8 @@ check_inputs <- function(f, input_names) {
 
 #' Create a Random Id
 #'
+#' @description Creates a random identifier from a-zA-Z.
+#'
 #' @param n Length of the id (default: 32)
 #'
 #' @return a random id
@@ -65,6 +67,11 @@ create_id <- function(n = 32) {
 #' @export
 #'
 #' @importFrom purrr is_null is_scalar_atomic
+#'
+#' @examples
+#'
+#' ensure_id_postfix("aaaa")
+#' ensure_id_postfix(NULL)
 #'
 ensure_id_postfix <- function(postfix) {
   stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & nchar(postfix) > 0)

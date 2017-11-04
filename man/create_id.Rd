@@ -13,7 +13,7 @@ create_id(n = 32)
 a random id
 }
 \description{
-Create a Random Id
+Creates a random identifier from a-zA-Z.
 }
 \examples{
 

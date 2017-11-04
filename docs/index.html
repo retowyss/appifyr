@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>appifyr: Write R Get Apps! • appifyr</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="jquery.sticky-kit.min.js"></script><script src="pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -97,7 +97,11 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 <pre><code><a href="http://www.rdocumentation.org/packages/appifyr/topics/build_app">appifyr::build_app()</a></code></pre>
 <p>And run it with:</p>
 <pre><code><a href="http://www.rdocumentation.org/packages/opencpu/topics/server">opencpu::ocpu_start_app("MyApp")</a></code></pre>
-<p>A short walkthrough and demo is on Youtube : <a href="https://www.youtube.com/watch?v=CAlBD6_T374">appifyr - Write R Get Apps - First Glimpse</a></p>
+<ol style="list-style-type: decimal">
+<li><a href="https://retowyss.github.io/appifyr/">Documentation</a></li>
+<li>A short walkthrough and demo is on Youtube : <a href="https://www.youtube.com/watch?v=CAlBD6_T374">appifyr - Write R Get Apps - First Glimpse</a>
+</li>
+</ol>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
@@ -133,11 +137,11 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 )</code></pre></div>
 <div>
 <div>
-<form id="form-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="well">
+<form id="form-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>Color 1</label>
-<select id="input-color_1-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="input-color_1-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -147,7 +151,7 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 </div>
 <div class="col-sm-4">
 <label>Color 2</label>
-<select id="input-color_2-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="input-color_2-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -157,7 +161,7 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 </div>
 <div class="col-sm-4">
 <label>Color 3</label>
-<select id="input-color_3-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="input-color_3-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -166,15 +170,15 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 <option value="#000000">Black</option></select>
 </div>
 </fieldset>
-<button id="button-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj" class="btn btn-primary" type="button">Submit</button>
+<button id="button-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="canvas-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj"></div>
+<div style="height: 600px;" class="well" id="canvas-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA"></div>
 </div>
-<script type="text/javascript" charset="utf-8">$("#button-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").click(function(){
-var req = $("#canvas-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").rplot("iris_clustering", {
-    color_1 : (function(){x = $("#input-color_1-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})(),
-color_2 : (function(){x = $("#input-color_2-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})(),
-color_3 : (function(){x = $("#input-color_3-gxqeHWpcrRuozjkWEeChjPLrDzbXBOEj").val(); return(isNaN(x) ? x : parseFloat(x))})()
+<script type="text/javascript" charset="utf-8">$("#button-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA").click(function(){
+var req = $("#canvas-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA").rplot("iris_clustering", {
+    color_1 : (function(){x = $("#input-color_1-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+color_2 : (function(){x = $("#input-color_2-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA").val(); return(isNaN(x) ? x : parseFloat(x))})(),
+color_3 : (function(){x = $("#input-color_3-yqBWXAvxpuVRdrQChxuIRdRgGiJozMoA").val(); return(isNaN(x) ? x : parseFloat(x))})()
 });
 
 //Error
@@ -199,6 +203,7 @@ req.fail(function(){
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/retowyss/appifyr"><img src="https://travis-ci.org/retowyss/appifyr.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="https://codecov.io/github/retowyss/appifyr?branch=master"><img src="https://codecov.io/gh/retowyss/appifyr/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 </ul>
 </div>
 
