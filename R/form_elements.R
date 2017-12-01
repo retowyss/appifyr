@@ -25,7 +25,7 @@ appify <- function(f, inps, id = NULL) {
     form
   )
 
-  out <- html_container_output(id = paste0("target"), height = 600)
+  out <- html_container_output(id = paste0("target-", id), height = 600)
 
   jscript <- tags$script(
     type = "text/javascript",
@@ -92,9 +92,7 @@ html_container_output <- function(id, height) {
   )
 }
 
-
-
-#' Title
+#' Form Group To HTML
 #'
 #' @param g a form group list
 #' @param id an id
@@ -359,4 +357,72 @@ factor_to_chr <- function(x) {
   } else {
     as.double(x)
   }
+}
+
+#' The R-Plot Widget
+#'
+#' @description This function fills the rplot.js glue-partial. The rplot javascript
+#'     function is part of the OpenCPU javascript library.
+#'
+#' @param id id of the corresponding html elements
+#' @param rf name of the R function
+#' @param json inner json of arguments to the R function
+#' @param err error message (default: "Error in R function call: ")
+#'
+#' @return java script code
+#'
+#' @importFrom magrittr %>%
+#' @importFrom readr read_file
+#' @importFrom glue glue
+#'
+#' @examples
+#' appifyr:::rplot("xGkrZCuuI", "rnorm", "n : 5")
+#' appifyr:::rplot("xGkrZCuuI", "rnorm", "n : 1000, mean : 100, sd : 15")
+#'
+rplot <- function(id, rf, json, err = "Error: ") {
+  system.file("js/glue/rplot.js", package = "appifyr") %>%
+    read_file() %>%
+    glue(.open = "<<", .close = ">>") %>%
+    as.character()
+}
+
+#' Argument To JSON
+#'
+#' @param an argument name, e.g. "n"
+#' @param id html id
+#'
+#' @return json body code,
+#'
+#' @importFrom magrittr %>%
+#' @importFrom readr read_file
+#' @importFrom glue glue
+#'
+arg_to_json <- function(an, id) {
+  system.file("js/glue/json.js", package = "appifyr") %>%
+    read_file() %>%
+    glue(
+      .open = "<<",
+      .close = ">>",
+      an = an,
+      id = id
+    ) %>%
+    as.character()
+}
+
+#' Arguments To JSON
+#'
+#' @param ans argument names
+#' @param id html identifier
+#'
+#' @return json body code
+#'
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#' @importFrom glue collapse
+#'
+args_to_json <- function(ans, id) {
+  ans %>%
+    map(arg_to_json, id = id) %>%
+    collapse(sep = ",\n") %>%
+    as.character()
 }

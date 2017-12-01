@@ -60,6 +60,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Motivation.html">Motivation</a>
+    </li>
+  </ul>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -117,7 +129,7 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rplot</span>(<span class='st'>"xGkrZCuuI"</span>, <span class='st'>"rnorm"</span>, <span class='st'>"n : 5"</span>)</div><div class='output co'>#&gt; [1] "$(\"#submit-xGkrZCuuI\").click(function(){\nvar req = $(\"#target-xGkrZCuuI\").rplot(\n  \"rnorm\",\n  {n : 5}\n);\nreq.fail(function(){\n  alert(Error:  + req.responseText);\n});\n});"</div><div class='input'><span class='fu'>rplot</span>(<span class='st'>"xGkrZCuuI"</span>, <span class='st'>"rnorm"</span>, <span class='st'>"n : 1000, mean : 100, sd : 15"</span>)</div><div class='output co'>#&gt; [1] "$(\"#submit-xGkrZCuuI\").click(function(){\nvar req = $(\"#target-xGkrZCuuI\").rplot(\n  \"rnorm\",\n  {n : 1000, mean : 100, sd : 15}\n);\nreq.fail(function(){\n  alert(Error:  + req.responseText);\n});\n});"</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='kw pkg'>appifyr</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/appifyr/topics/rplot'>rplot</a></span>(<span class='st'>"xGkrZCuuI"</span>, <span class='st'>"rnorm"</span>, <span class='st'>"n : 5"</span>)</div><div class='output co'>#&gt; [1] "$(\"#submit-xGkrZCuuI\").click(function(){\n  var req = $(\"#target-xGkrZCuuI\").rplot(\n    \"rnorm\",\n    {n : 5}\n  );\n  req.fail(function(){\n    alert(\"Error: \" + req.responseText);\n  });\n});"</div><div class='input'><span class='kw pkg'>appifyr</span><span class='kw ns'>:::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/appifyr/topics/rplot'>rplot</a></span>(<span class='st'>"xGkrZCuuI"</span>, <span class='st'>"rnorm"</span>, <span class='st'>"n : 1000, mean : 100, sd : 15"</span>)</div><div class='output co'>#&gt; [1] "$(\"#submit-xGkrZCuuI\").click(function(){\n  var req = $(\"#target-xGkrZCuuI\").rplot(\n    \"rnorm\",\n    {n : 1000, mean : 100, sd : 15}\n  );\n  req.fail(function(){\n    alert(\"Error: \" + req.responseText);\n  });\n});"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

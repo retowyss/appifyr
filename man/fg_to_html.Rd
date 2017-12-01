@@ -2,7 +2,7 @@
 % Please edit documentation in R/form_elements.R
 \name{fg_to_html}
 \alias{fg_to_html}
-\title{Title}
+\title{Form Group To HTML}
 \usage{
 fg_to_html(g, id)
 }
@@ -15,5 +15,5 @@ fg_to_html(g, id)
 
 }
 \description{
-Title
+Form Group To HTML
 }

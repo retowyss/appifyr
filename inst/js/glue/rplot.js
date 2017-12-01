@@ -4,6 +4,6 @@ $("#submit-<<id>>").click(function(){
     {<<json>>}
   );
   req.fail(function(){
-    alert(<<err>> + req.responseText);
+    alert("<<err>>" + req.responseText);
   });
 });

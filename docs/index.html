@@ -37,6 +37,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Motivation.html">Motivation</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -127,20 +139,20 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 <li>a list <code>inputs</code>.</li>
 </ol>
 <p>That’s it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/app_ify.html">app_ify</a></span>(
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/appify.html">appify</a></span>(
   <span class="dt">f =</span> <span class="st">"iris_clustering"</span>, 
   <span class="dt">inps =</span> <span class="kw">list</span>(
-    <span class="dt">color_1 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(dd<span class="op">$</span>color),
-    <span class="dt">color_2 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(dd<span class="op">$</span>color),
-    <span class="dt">color_3 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(dd<span class="op">$</span>color)
+    <span class="dt">color_1 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(kvs<span class="op">$</span>color),
+    <span class="dt">color_2 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(kvs<span class="op">$</span>color),
+    <span class="dt">color_3 =</span> <span class="kw"><a href="reference/inp_dropdown.html">inp_dropdown</a></span>(kvs<span class="op">$</span>color)
   )
 )</code></pre></div>
 <div>
-<form id="form-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl" class="well">
+<form id="form-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt" class="well">
 <fieldset class="row">
 <div class="col-sm-4">
 <label>color_1</label>
-<select id="color_1-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="color_1-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -150,7 +162,7 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 </div>
 <div class="col-sm-4">
 <label>color_2</label>
-<select id="color_2-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="color_2-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -160,7 +172,7 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 </div>
 <div class="col-sm-4">
 <label>color_3</label>
-<select id="color_3-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl" class="form-group form-control"><option value="#2196F3">Blue</option>
+<select id="color_3-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt" class="form-group form-control"><option value="#2196F3">Blue</option>
 <option value="#673AB7">Deep Purple</option>
 <option value="#F44336">Red</option>
 <option value="#4CAF50">Green</option>
@@ -169,28 +181,28 @@ devtools::install_github("retowyss/appifyr")</code></pre>
 <option value="#000000">Black</option></select>
 </div>
 </fieldset>
-<button id="submit-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl" class="btn btn-primary" type="button">Submit</button>
+<button id="submit-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt" class="btn btn-primary" type="button">Submit</button>
 </form>
-<div style="height: 600px;" class="well" id="target"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl").click(function(){
-var req = $("#target-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl").rplot(
-  "iris_clustering",
-  {color_1 : (function(){
-var x = $('#color_1-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl').val();
-return(isNaN() ? x : parseFloat(x));
+<div style="height: 600px;" class="well" id="target-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt"></div>
+<script type="text/javascript" charset="utf-8">$("#submit-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt").click(function(){
+  var req = $("#target-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt").rplot(
+    "iris_clustering",
+    {color_1 : (function(){
+  var x = $('#color_1-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt').val();
+  return(isNaN() ? x : parseFloat(x));
 })(),
 color_2 : (function(){
-var x = $('#color_2-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl').val();
-return(isNaN() ? x : parseFloat(x));
+  var x = $('#color_2-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt').val();
+  return(isNaN() ? x : parseFloat(x));
 })(),
 color_3 : (function(){
-var x = $('#color_3-hYeGFVwkaebblnMeoHUDjDQXkJkiusdl').val();
-return(isNaN() ? x : parseFloat(x));
+  var x = $('#color_3-nLuznIFyxtYPMxYEALSVaFccKzAQQQqt').val();
+  return(isNaN() ? x : parseFloat(x));
 })()}
-);
-req.fail(function(){
-  alert(Error:  + req.responseText);
-});
+  );
+  req.fail(function(){
+    alert("Error: " + req.responseText);
+  });
 });</script>
 </div>
 </div>
