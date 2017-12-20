@@ -30,6 +30,7 @@ create_app <- function(template = "website") {
 #' @importFrom stringr str_extract_all str_extract str_replace str_to_title
 #' @importFrom glue glue
 #' @importFrom readr read_file write_file
+#' @importFrom dplyr mutate
 #'
 to_r_code <- function() {
   app_rmd <- grab_app_rmd()
