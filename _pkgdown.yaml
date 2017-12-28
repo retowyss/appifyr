@@ -1,5 +1,9 @@
 url: //retowyss.github.io/appifyr
 
+authors:
+  Reto Wyss:
+    href: https://reto-wyss.com
+
 template:
   params:
     bootswatch: readable
