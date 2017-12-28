@@ -89,7 +89,7 @@ iris_clustering <- function(color_1, color_2, color_3) {
 
 That's it.
 
-```{r}
+```{r, eval = FALSE}
 appify(
   f = "iris_clustering", 
   inps = list(
@@ -99,3 +99,7 @@ appify(
   )
 )
 ```
+
+## How to get started
+
+You should read the package-vignettes. They explain how `appifyr` works and why it works the way it does.

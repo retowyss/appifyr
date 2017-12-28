@@ -2,5 +2,6 @@ urls:
   reference: //retowyss.github.io/appifyr/reference
   article: //retowyss.github.io/appifyr/articles
 articles:
+  Introduction: Introduction.html
   Motivation: Motivation.html
 

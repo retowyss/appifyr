@@ -1,0 +1,41 @@
+---
+title: "Introduction to appifyr"
+author: "Reto Wyss"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to indentify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then executes the R-function. The R-function's output is then handled by the Javascript callback and displayed to the user.
+
+## Installation
+
+First, you need to install `devtools` from CRAN.
+
+```
+install.packages("devtools")
+```
+
+Second, install `appifyr`. It has a fair amount of package dependancies in its own right, these will be installed automatically. 
+
+```
+devtools::install_github("retowyss/appifyr")
+```
+
+Third, install OpenCPU. It too has a bunch of dependancies. If you are using Ubuntu/Debian you might have to install some additional system libraries.
+
+```
+install.packages("opencpu")
+```
+
+## Working with appifyr
+
+If you want to create an app with appifyr you will essentially be writing an R-package. Appifyr does nothing more than write Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is Hadley Wickhams R-Package book. I explain the essential in this youtube video.
+
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/CAlBD6_T374" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+
+

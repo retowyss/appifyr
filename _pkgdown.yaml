@@ -2,7 +2,7 @@ url: //retowyss.github.io/appifyr
 
 template:
   params:
-    bootswatch: cerulean
+    bootswatch: readable
 
 navbar:
   title: "appifyr"
@@ -10,3 +10,4 @@ navbar:
   right:
     - icon: fa-github
       href: https://github.com/retowyss/appifyr
+

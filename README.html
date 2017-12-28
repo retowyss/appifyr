@@ -194,70 +194,10 @@ devtools::install_github(&quot;retowyss/appifyr&quot;)</code></pre>
     color_3 = inp_dropdown(kvs$color)
   )
 )</code></pre>
-<div>
-<form id="form-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI" class="well">
-<fieldset class="row">
-<div class="col-sm-4">
-<label>color_1</label>
-<select id="color_1-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI" class="form-group form-control">
-<option value="#2196F3">Blue</option>
-<option value="#673AB7">Deep Purple</option>
-<option value="#F44336">Red</option>
-<option value="#4CAF50">Green</option>
-<option value="#FF5722">Deep Orange</option>
-<option value="#9E9E9E">Grey</option>
-<option value="#000000">Black</option>
-</select>
 </div>
-<div class="col-sm-4">
-<label>color_2</label>
-<select id="color_2-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI" class="form-group form-control">
-<option value="#2196F3">Blue</option>
-<option value="#673AB7">Deep Purple</option>
-<option value="#F44336">Red</option>
-<option value="#4CAF50">Green</option>
-<option value="#FF5722">Deep Orange</option>
-<option value="#9E9E9E">Grey</option>
-<option value="#000000">Black</option>
-</select>
-</div>
-<div class="col-sm-4">
-<label>color_3</label>
-<select id="color_3-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI" class="form-group form-control">
-<option value="#2196F3">Blue</option>
-<option value="#673AB7">Deep Purple</option>
-<option value="#F44336">Red</option>
-<option value="#4CAF50">Green</option>
-<option value="#FF5722">Deep Orange</option>
-<option value="#9E9E9E">Grey</option>
-<option value="#000000">Black</option>
-</select>
-</div>
-</fieldset>
-<button id="submit-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI" class="btn btn-primary" type="button">Submit</button>
-</form>
-<div style="height: 600px;" class="well" id="target-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI"></div>
-<script type="text/javascript" charset="utf-8">$("#submit-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI").click(function(){
-  var req = $("#target-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI").rplot(
-    "iris_clustering",
-    {color_1 : (function(){
-  var x = $('#color_1-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI').val();
-  return(isNaN() ? x : parseFloat(x));
-})(),
-color_2 : (function(){
-  var x = $('#color_2-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI').val();
-  return(isNaN() ? x : parseFloat(x));
-})(),
-color_3 : (function(){
-  var x = $('#color_3-YHEZBfVWPPdAfeLCjtLUizzCiwnjyHgI').val();
-  return(isNaN() ? x : parseFloat(x));
-})()}
-  );
-  req.fail(function(){
-    alert("Error: " + req.responseText);
-  });
-});</script>
-</div>
+<div id="how-to-get-started" class="section level2">
+<h2>How to get started</h2>
+<p>You should read the package-vignettes. They explain how <code>appifyr</code> works and why it works the way it does.</p>
 </div>
 </div>
 
