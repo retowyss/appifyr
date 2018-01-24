@@ -1,5 +1,10 @@
 #' Create App
 #'
+#' @description This function should be called when starting a new project
+#'     with appifyr. The default template is website and it's the only one
+#'     currently supported. The templates files reside in the newly created
+#'     app directory. They are standard Rmarkdown website components.
+#'
 #' @param template template to build the app with (default: website)
 #'
 #' @return project directory is set up
@@ -32,11 +37,15 @@ create_app <- function(template = "website") {
 #' @importFrom readr read_file write_file
 #' @importFrom dplyr mutate
 #'
-to_r_code <- function() {
-  app_rmd <- grab_app_rmd()
+to_r_code <- function(app_dir = "app/website/") {
+  app_rmd <- grab_app_rmd(app_dir = app_dir)
 
   roxygen_skeleton <- read_file(system.file("txt/roxygen_skeleton.txt", package = "appifyr"))
+  r_code_file <- "R/your_r_code.R"
 
+  # To make packages available at runtime in OpenCPU we need to find the
+  # package dependencies in the Rmarkdown file and add them to the roxygen
+  # header. Roxygen will then create the namespace file.
   imports <- app_rmd %>%
     map(extract_pkgs) %>%
     flatten() %>%
@@ -64,8 +73,9 @@ to_r_code <- function() {
       glue(roxygen_skeleton)
     })
 
-  if(file.exists("R/your_r_code.R")) file.remove("R/your_r_code.R")
-  map(r_code, write_file, "R/your_r_code.R", append = TRUE)
+  if (file.exists(r_code_file)) file.remove(r_code_file)
+
+  map(r_code, write_file, path = r_code_file, append = TRUE)
 
   invisible()
 }
@@ -81,10 +91,14 @@ to_r_code <- function() {
 #' @importFrom devtools document install
 #' @import roxygen2
 #'
-build_app <- function(app_dir = "app/website/") {
+build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
   render_site(input = app_dir)
-  to_r_code()
-  if(file.exists("NAMESPACE")) file.remove("NAMESPACE")
+  if (from_rmd) {
+    to_r_code()
+  }
+  if (file.exists("NAMESPACE")) {
+    file.remove("NAMESPACE")
+  }
   document(roclets=c('rd', 'collate', 'namespace', 'vignette'))
   install()
   invisible()
@@ -99,10 +113,9 @@ build_app <- function(app_dir = "app/website/") {
 #' @importFrom readr read_file
 #' @importFrom purrr map
 #'
-grab_app_rmd <- function(app_dir = "app/website/") {
+grab_app_rmd <- function(app_dir) {
   map(paste0(app_dir, dir(app_dir, pattern = ".*\\.Rmd$")), read_file)
 }
-
 
 #' Extract R functions from Rmd
 #'
@@ -125,11 +138,10 @@ extract_r_functions <- function(rmd) {
 #' @return a package name, e.g. dplyr
 #' @export
 #'
-#' @importFrom stringr str_replace
+#' @importFrom stringr str_extract
 #'
 extract_pkg_names <- function(pkg) {
-  pkg <- str_replace(pkg, pattern = "^.{8}", replacement = "")
-  str_replace(pkg, pattern = ".{1}$", replacement = "")
+  str_extract(pkg, "(?<=(require|library)\\([\"\']{0,1})[a-zA-Z0-9]*(?=[\"\']{0,1}\\))")
 }
 
 
