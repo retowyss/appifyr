@@ -12,7 +12,7 @@
 
 <meta name="author" content="Reto Wyss" />
 
-<meta name="date" content="2017-12-26" />
+<meta name="date" content="2018-01-24" />
 
 <title>Introduction to appifyr</title>
 
@@ -32,11 +32,31 @@
 
 <h1 class="title toc-ignore">Introduction to appifyr</h1>
 <h4 class="author"><em>Reto Wyss</em></h4>
-<h4 class="date"><em>2017-12-26</em></h4>
+<h4 class="date"><em>2018-01-24</em></h4>
 
 
 
-
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>There currently are two packages that allow useRs to build web apps with R: Shiny and OpenCPU. They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is a more indepentant platform and can be scaled without using the proprietory Shiny Server Pro.</p>
+<p>This is where appifyr comes in. It tries to make the OpenCPU engine more accessible for useRs with little to none knowledge of JavaScript and html.</p>
+<p>Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to indentify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then executes the R-function. The R-function’s output is then handled by the Javascript callback and displayed to the user.</p>
+</div>
+<div id="installation" class="section level1">
+<h1>Installation</h1>
+<p>First, you need to install <code>devtools</code> from CRAN.</p>
+<pre><code>install.packages(&quot;devtools&quot;)</code></pre>
+<p>Second, install <code>appifyr</code>. It has a fair amount of package dependancies in its own right, these will be installed automatically.</p>
+<pre><code>devtools::install_github(&quot;retowyss/appifyr&quot;)</code></pre>
+<p>Third, install OpenCPU. It too has a bunch of dependancies. If you are using Ubuntu/Debian you might have to install some additional system libraries.</p>
+<pre><code>install.packages(&quot;opencpu&quot;)</code></pre>
+</div>
+<div id="working-with-appifyr" class="section level1">
+<h1>Working with appifyr</h1>
+<p>If you want to create an app with appifyr you will essentially be writing an R-package. Appifyr does nothing more than write Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is Hadley Wickhams R-Package book. I explain the essential in this youtube video.</p>
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/CAlBD6_T374" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen>
+</iframe>
+</div>
 
 
 

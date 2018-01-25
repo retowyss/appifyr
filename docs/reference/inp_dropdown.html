@@ -148,10 +148,10 @@ name of the variable</p></td>
 #&gt; # A tibble: 4 x 2
 #&gt;     key value
 #&gt;   &lt;dbl&gt; &lt;dbl&gt;
-#&gt; 1     1     1
-#&gt; 2     3     3
-#&gt; 3     7     7
-#&gt; 4    42    42
+#&gt; 1  1.00  1.00
+#&gt; 2  3.00  3.00
+#&gt; 3  7.00  7.00
+#&gt; 4 42.0  42.0 
 #&gt; </div><div class='input'><span class='fu'>inp_dropdown</span>(<span class='fu'>names</span>(<span class='no'>iris</span>), <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Select Iris Variable"</span>)</div><div class='output co'>#&gt; $fg
 #&gt; [1] "dropdown"
 #&gt; 
@@ -166,13 +166,13 @@ name of the variable</p></td>
 #&gt; 
 #&gt; $opts
 #&gt; # A tibble: 5 x 2
-#&gt;            key        value
-#&gt;          &lt;chr&gt;        &lt;chr&gt;
+#&gt;   key          value       
+#&gt;   &lt;chr&gt;        &lt;chr&gt;       
 #&gt; 1 Sepal.Length Sepal.Length
-#&gt; 2  Sepal.Width  Sepal.Width
+#&gt; 2 Sepal.Width  Sepal.Width 
 #&gt; 3 Petal.Length Petal.Length
-#&gt; 4  Petal.Width  Petal.Width
-#&gt; 5      Species      Species
+#&gt; 4 Petal.Width  Petal.Width 
+#&gt; 5 Species      Species     
 #&gt; </div><div class='input'><span class='no'>kv</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>key</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"A"</span>, <span class='st'>"B"</span>), <span class='kw'>value</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1</span>, <span class='fl'>2</span>))
 <span class='fu'>inp_dropdown</span>(<span class='no'>kv</span>)</div><div class='output co'>#&gt; $fg
 #&gt; [1] "dropdown"
@@ -188,10 +188,10 @@ name of the variable</p></td>
 #&gt; 
 #&gt; $opts
 #&gt; # A tibble: 2 x 2
-#&gt;     key value
+#&gt;   key   value
 #&gt;   &lt;chr&gt; &lt;dbl&gt;
-#&gt; 1     A     1
-#&gt; 2     B     2
+#&gt; 1 A      1.00
+#&gt; 2 B      2.00
 #&gt; </div><div class='input'><span class='fu'>inp_dropdown</span>(<span class='no'>LETTERS</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='st'>"Letters"</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; $fg
 #&gt; [1] "dropdown"
 #&gt; 
@@ -206,18 +206,18 @@ name of the variable</p></td>
 #&gt; 
 #&gt; $opts
 #&gt; # A tibble: 26 x 2
-#&gt;      key value
+#&gt;    key   value
 #&gt;    &lt;chr&gt; &lt;chr&gt;
-#&gt;  1     A     A
-#&gt;  2     B     B
-#&gt;  3     C     C
-#&gt;  4     D     D
-#&gt;  5     E     E
-#&gt;  6     F     F
-#&gt;  7     G     G
-#&gt;  8     H     H
-#&gt;  9     I     I
-#&gt; 10     J     J
+#&gt;  1 A     A    
+#&gt;  2 B     B    
+#&gt;  3 C     C    
+#&gt;  4 D     D    
+#&gt;  5 E     E    
+#&gt;  6 F     F    
+#&gt;  7 G     G    
+#&gt;  8 H     H    
+#&gt;  9 I     I    
+#&gt; 10 J     J    
 #&gt; # ... with 16 more rows
 #&gt; </div><div class='input'><span class='fu'>inp_dropdown</span>(<span class='fu'>list</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>m</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>k</span> <span class='kw'>=</span> <span class='fl'>4</span>))</div><div class='output co'>#&gt; $fg
 #&gt; [1] "dropdown"
@@ -233,11 +233,11 @@ name of the variable</p></td>
 #&gt; 
 #&gt; $opts
 #&gt; # A tibble: 3 x 2
-#&gt;     key value
+#&gt;   key   value
 #&gt;   &lt;chr&gt; &lt;dbl&gt;
-#&gt; 1     n     1
-#&gt; 2     m     2
-#&gt; 3     k     4
+#&gt; 1 n      1.00
+#&gt; 2 m      2.00
+#&gt; 3 k      4.00
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

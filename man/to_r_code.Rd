@@ -4,7 +4,10 @@
 \alias{to_r_code}
 \title{To R Code}
 \usage{
-to_r_code()
+to_r_code(app_dir = "app/website/")
+}
+\arguments{
+\item{app_dir}{the appifyr app location}
 }
 \value{
 R/your_r_code.R file

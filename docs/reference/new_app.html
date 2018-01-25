@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Build App — build_app • appifyr</title>
+<title>New App — new_app • appifyr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -95,32 +95,30 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Build App</h1>
+    <h1>New App</h1>
     </div>
 
     
-    <p>Build App</p>
+    <p>This function should be called when starting a new project
+    with appifyr. The default template is website and it's the only one
+    currently supported. The templates files reside in the newly created
+    app directory. They are standard Rmarkdown website components.</p>
     
 
-    <pre class="usage"><span class='fu'>build_app</span>(<span class='kw'>app_dir</span> <span class='kw'>=</span> <span class='st'>"app/website/"</span>, <span class='kw'>from_rmd</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>new_app</span>(<span class='kw'>template</span> <span class='kw'>=</span> <span class='st'>"website"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>app_dir</th>
-      <td><p>path to the app (default: app/website/)</p></td>
-    </tr>
-    <tr>
-      <th>from_rmd</th>
-      <td><p>should the app be created based on functions defined in the
-Rmardown document?</p></td>
+      <th>template</th>
+      <td><p>template to build the app with (default: website)</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>invisible</p>
+    <p>project directory is set up</p>
     
 
   </div>

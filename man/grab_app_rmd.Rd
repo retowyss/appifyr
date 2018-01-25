@@ -4,7 +4,7 @@
 \alias{grab_app_rmd}
 \title{Grab App Rmd}
 \usage{
-grab_app_rmd(app_dir = "app/website/")
+grab_app_rmd(app_dir)
 }
 \arguments{
 \item{app_dir}{path to the app (default: app/website/)}

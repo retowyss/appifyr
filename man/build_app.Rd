@@ -4,10 +4,13 @@
 \alias{build_app}
 \title{Build App}
 \usage{
-build_app(app_dir = "app/website/")
+build_app(app_dir = "app/website/", from_rmd = TRUE)
 }
 \arguments{
 \item{app_dir}{path to the app (default: app/website/)}
+
+\item{from_rmd}{should the app be created based on functions defined in the
+Rmardown document?}
 }
 \value{
 invisible
