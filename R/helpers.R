@@ -75,7 +75,7 @@ create_id <- function(n = 32) {
 #'
 ensure_id_postfix <- function(postfix) {
   stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & nchar(postfix) > 0)
-  if(is_null(postfix)) {
+  if (is_null(postfix)) {
     create_id()
   } else {
     postfix

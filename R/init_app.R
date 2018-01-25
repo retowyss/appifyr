@@ -1,4 +1,5 @@
-#' Create App
+# nocov start
+#' New App
 #'
 #' @description This function should be called when starting a new project
 #'     with appifyr. The default template is website and it's the only one
@@ -13,19 +14,26 @@
 #' @importFrom magrittr %>%
 #' @importFrom readr read_file write_file
 #'
-create_app <- function(template = "website") {
+new_app <- function(template = "website") {
   write_file("^app$\n", ".Rbuildignore", append = TRUE)
   dir.create("inst/www", recursive = TRUE)
   dir.create("app")
+
   system.file(paste0("rmd/", template, "/"), package = "appifyr") %>%
     file.copy("app", recursive = TRUE)
-  if(file.exists("R/hello.R")) file.remove("R/hello.R")
+
+  if (file.exists("R/hello.R")) {
+    file.remove("R/hello.R")
+  }
+
   invisible()
 }
 
 #' To R Code
 #'
 #' @description Translate Rmd code into package code.
+#'
+#' @param app_dir the appifyr app location
 #'
 #' @return R/your_r_code.R file
 #'
@@ -40,7 +48,8 @@ create_app <- function(template = "website") {
 to_r_code <- function(app_dir = "app/website/") {
   app_rmd <- grab_app_rmd(app_dir = app_dir)
 
-  roxygen_skeleton <- read_file(system.file("txt/roxygen_skeleton.txt", package = "appifyr"))
+  roxygen_skeleton <- read_file(system.file("txt/roxygen_skeleton.txt",
+                                            package = "appifyr"))
   r_code_file <- "R/your_r_code.R"
 
   # To make packages available at runtime in OpenCPU we need to find the
@@ -56,7 +65,7 @@ to_r_code <- function(app_dir = "app/website/") {
     setdiff("appifyr") %>%
     union(c("stats", "datasets")) %>%
     glue("#' @import {package}", package = .) %>%
-    reduce(~ glue("{.x}\n{.y}"))
+    reduce( ~ glue("{.x}\n{.y}"))
 
   r_code <- app_rmd %>%
     map(extract_r_functions) %>%
@@ -64,11 +73,9 @@ to_r_code <- function(app_dir = "app/website/") {
     flatten() %>%
     as_vector() %>%
     tibble(code = .) %>%
-    mutate(
-      title = str_extract(code, "[a-zA-Z\\.]{1}.*? ") %>%
-        str_replace("_", " ") %>%
-        str_to_title()
-    ) %>%
+    mutate(title = str_extract(code, "[a-zA-Z\\.]{1}.*? ") %>%
+             str_replace("_", " ") %>%
+             str_to_title()) %>%
     pmap(function(code, title) {
       glue(roxygen_skeleton)
     })
@@ -83,6 +90,8 @@ to_r_code <- function(app_dir = "app/website/") {
 #' Build App
 #'
 #' @param app_dir path to the app (default: app/website/)
+#' @param from_rmd should the app be created based on functions defined in the
+#'     Rmardown document?
 #'
 #' @return invisible
 #' @export
@@ -91,7 +100,7 @@ to_r_code <- function(app_dir = "app/website/") {
 #' @importFrom devtools document install
 #' @import roxygen2
 #'
-build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
+build_app <- function(app_dir = "app/website/", from_rmd = TRUE) {
   render_site(input = app_dir)
   if (from_rmd) {
     to_r_code()
@@ -99,7 +108,7 @@ build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
   if (file.exists("NAMESPACE")) {
     file.remove("NAMESPACE")
   }
-  document(roclets=c('rd', 'collate', 'namespace', 'vignette'))
+  document(roclets = c('rd', 'collate', 'namespace', 'vignette'))
   install()
   invisible()
 }
@@ -117,12 +126,13 @@ grab_app_rmd <- function(app_dir) {
   map(paste0(app_dir, dir(app_dir, pattern = ".*\\.Rmd$")), read_file)
 }
 
+# nocov end
+
 #' Extract R functions from Rmd
 #'
 #' @param rmd Rmd as character
 #'
 #' @return list of R functions
-#' @export
 #'
 #' @importFrom stringr str_extract_all
 #'
@@ -136,12 +146,12 @@ extract_r_functions <- function(rmd) {
 #' @param pkg "library(pkg)" or "require(pkg)"
 #'
 #' @return a package name, e.g. dplyr
-#' @export
 #'
 #' @importFrom stringr str_extract
 #'
 extract_pkg_names <- function(pkg) {
-  str_extract(pkg, "(?<=(require|library)\\([\"\']{0,1})[a-zA-Z0-9]*(?=[\"\']{0,1}\\))")
+  pkgrx <- "(?<=(require|library)\\([\"\']{0,1})[a-zA-Z0-9]*(?=[\"\']{0,1}\\))"
+  str_extract(pkg, pkgrx)
 }
 
 
@@ -150,7 +160,6 @@ extract_pkg_names <- function(pkg) {
 #' @param rmd Rmd as character
 #'
 #' @return require(pkg) or library(pkg)
-#' @export
 #'
 extract_pkgs <- function(rmd) {
   str_extract_all(rmd, pattern = c("library\\(.*\\)", "require\\(.*\\)"))
