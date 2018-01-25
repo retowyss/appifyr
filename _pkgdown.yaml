@@ -15,3 +15,32 @@ navbar:
     - icon: fa-github
       href: https://github.com/retowyss/appifyr
 
+reference:
+  - title: "Setup & App Management"
+    contents:
+    - new_app
+    - build_app
+  - title: "Appifying"
+    desc:  Transforms the raw data - mostly cleaning and setting correct levels.
+    contents:
+    - appify
+    - starts_with("inp_")
+  - title: "Data"
+    contents:
+    - kvs
+  - title: "Internals"
+    desc: These functions are not available on the user level.
+    contents:
+    - check_inputs
+    - ensure_id_postfix
+    - create_id
+    - starts_with("html_")
+    - rplot
+    - set_label
+    - starts_with("fg_")
+    - extract_r_functions
+    - extract_pkg_names
+    - extract_pkgs
+    - to_r_code
+    - contains("_to_")
+
