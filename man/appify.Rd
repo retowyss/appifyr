@@ -4,12 +4,14 @@
 \alias{appify}
 \title{Create App From Function and Inputs}
 \usage{
-appify(f, inps, id = NULL)
+appify(f, inps, out = "plot", id = NULL)
 }
 \arguments{
 \item{f}{a function}
 
 \item{inps}{a set of inputs}
+
+\item{out}{the output type (currently the only valid value is "plot")}
 
 \item{id}{html identifier}
 }

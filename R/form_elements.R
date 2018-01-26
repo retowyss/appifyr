@@ -2,6 +2,7 @@
 #'
 #' @param f a function
 #' @param inps a set of inputs
+#' @param out the output type (currently the only valid value is "plot")
 #' @param id html identifier
 #'
 #' @return html
