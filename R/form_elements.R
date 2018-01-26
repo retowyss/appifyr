@@ -11,7 +11,8 @@
 #' @importFrom purrr map
 #' @importFrom htmltools tags
 #'
-appify <- function(f, inps, id = NULL) {
+appify <- function(f, inps, out = "plot",id = NULL) {
+  stopifnot(out == "plot")
   id <- ensure_id_postfix(id)
   inps <- set_label(inps)
 

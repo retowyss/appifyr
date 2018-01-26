@@ -18,7 +18,7 @@ Done. There is your app!
 Appify and shiny approach building apps from two different points of view. 
 
 * When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal. 
-* When you use Appify you start with R code. You create the app to visualize your function.
+* When you use Appifyr you start with R code. You create the app to visualize your function.
 
 ## Install & Usage
 

@@ -1,7 +1,7 @@
 Package: appifyr
 Type: Package
 Title: appifyr: Write R Get Apps!
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Reto", "Wyss", role = c("aut", "cre", "cph"), email = "reto.wyss.ch@gmail.com")
 Description: appifyr enables you to build apps from function definitions.
     Output from appify can be rendered in an Rmd file or may be saved to
@@ -28,6 +28,5 @@ RoxygenNote: 6.0.1
 Suggests:
     testthat,
     covr,
-    knitr,
-    rmarkdown
+    knitr
 VignetteBuilder: knitr

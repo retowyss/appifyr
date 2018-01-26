@@ -1,5 +1,5 @@
 ---
-title: "Motivation"
+title: "Appifyr Input Types"
 author: "Reto Wyss"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -9,4 +9,3 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-None. This project was started on a dare.
