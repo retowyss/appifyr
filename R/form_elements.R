@@ -1,9 +1,11 @@
 #' Create App From Function and Inputs
 #'
-#' @param f a function
-#' @param inps a set of inputs
-#' @param out the output type (currently the only valid value is "plot")
-#' @param id html identifier
+#' @param f a function as a string
+#' @param inps a list of inputs, see \code{?inp_text}, \code{?inp_number}
+#'     and \code{?inp_dropdown}
+#' @param out the output type (currently the only valid value is \code{"plot"})
+#' @param id html identifier, when \code{NULL} the id will be generated
+#'     randomly. If you set the id manually, make sure it is unique.
 #'
 #' @return html
 #'
@@ -11,6 +13,13 @@
 #'
 #' @importFrom purrr imap
 #' @importFrom htmltools tags
+#'
+#' @examples
+#' # Assume the function my_function has arguments x, y:
+#' # my_function <- function(x, y) {
+#' #   # Code
+#' # }
+#' appify(f = "my_function", inps = list(x = inp_number(), y = inp_number()))
 #'
 appify <- function(f, inps, out = "plot", id = NULL) {
   stopifnot(out == "plot")

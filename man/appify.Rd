@@ -7,17 +7,27 @@
 appify(f, inps, out = "plot", id = NULL)
 }
 \arguments{
-\item{f}{a function}
+\item{f}{a function as a string}
 
-\item{inps}{a set of inputs}
+\item{inps}{a list of inputs, see \code{?inp_text}, \code{?inp_number}
+and \code{?inp_dropdown}}
 
-\item{out}{the output type (currently the only valid value is "plot")}
+\item{out}{the output type (currently the only valid value is \code{"plot"})}
 
-\item{id}{html identifier}
+\item{id}{html identifier, when \code{NULL} the id will be generated
+randomly. If you set the id manually, make sure it is unique.}
 }
 \value{
 html
 }
 \description{
 Create App From Function and Inputs
+}
+\examples{
+# Assume the function my_function has arguments x, y:
+# my_function <- function(x, y) {
+#   # Code
+# }
+appify(f = "my_function", inps = list(x = inp_number(), y = inp_number()))
+
 }
