@@ -15,9 +15,3 @@ a random id
 \description{
 Creates a random identifier from a-zA-Z.
 }
-\examples{
-
-id <- create_id()
-my_id <- create_id(42)
-
-}

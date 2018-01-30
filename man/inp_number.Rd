@@ -2,7 +2,7 @@
 % Please edit documentation in R/form_elements.R
 \name{inp_number}
 \alias{inp_number}
-\title{Number Form Group}
+\title{Number Input Form Group}
 \usage{
 inp_number(from = 0, to = 100, label = NULL, width = 4, ...)
 }
@@ -22,10 +22,11 @@ name of the variable}
 a list
 }
 \description{
-Number Form Group
+Number Input Form Group
 }
 \examples{
 inp_number()
 inp_number(from = 0, to = 1e9)
 inp_number(from = 1, to = 7, label = "This Is A Survey")
+
 }

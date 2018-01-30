@@ -140,64 +140,18 @@ $(document).ready(function () {
 <blockquote>
 <p>How is this different from Shiny?</p>
 </blockquote>
-<p>Appify and shiny approach building apps from two different points of view.</p>
+<p>Appifyr and Shiny approach building apps from two different points of view.</p>
 <ul>
 <li>When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal.</li>
 <li>When you use Appify you start with R code. You create the app to visualize your function.</li>
 </ul>
 </div>
-<div id="install-usage" class="section level2">
-<h2>Install &amp; Usage</h2>
-<pre><code>install.packages(&quot;devtools&quot;)
-devtools::install_github(&quot;retowyss/appifyr&quot;)</code></pre>
-<p>To run the app you will need OpenCPU.</p>
-<pre><code>install.packages(&quot;opencpu&quot;)</code></pre>
-<p>Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:</p>
-<pre><code>appifyr::new_app()</code></pre>
-<p>This will create a bunch of files. The <code>app</code> directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:</p>
-<pre><code>appifyr::build_app()</code></pre>
-<p>And run it with:</p>
-<pre><code>opencpu::ocpu_start_app(&quot;MyApp&quot;)</code></pre>
-<ol style="list-style-type: decimal">
-<li><a href="https://retowyss.github.io/appifyr/">Documentation</a></li>
-<li>A short walkthrough and demo is on Youtube : <a href="https://www.youtube.com/watch?v=CAlBD6_T374">appifyr - Write R Get Apps - First Glimpse</a></li>
-</ol>
-</div>
-<div id="example" class="section level2">
-<h2>Example</h2>
-<pre class="r"><code>require(appifyr)</code></pre>
-<pre><code>## Loading required package: appifyr</code></pre>
-<p>Write your R function.</p>
-<pre class="r"><code>require(ggplot2)</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre class="r"><code>iris_clustering &lt;- function(color_1, color_2, color_3) {
-  clusters &lt;- kmeans(iris[, 1:4], centers = 3, nstart = 3)
-  iris_clustered &lt;- cbind(iris, clusters = factor(clusters$cluster))
-  
-  ggplot(iris_clustered, aes(x = Sepal.Width, y = Petal.Width, color = clusters)) +
-    geom_point() +
-    scale_color_manual(values = c(color_1, color_2, color_3)) +
-    ggtitle(&quot;Kmeans Clustering&quot;) + 
-    theme_minimal()
-}</code></pre>
-<p><code>appifyr</code>’s <code>appify</code> requires two inputs:</p>
-<ol style="list-style-type: decimal">
-<li>a function <code>f</code> and</li>
-<li>a list <code>inputs</code>.</li>
-</ol>
-<p>That’s it.</p>
-<pre class="r"><code>appify(
-  f = &quot;iris_clustering&quot;, 
-  inps = list(
-    color_1 = inp_dropdown(kvs$color),
-    color_2 = inp_dropdown(kvs$color),
-    color_3 = inp_dropdown(kvs$color)
-  )
-)</code></pre>
-</div>
 <div id="how-to-get-started" class="section level2">
 <h2>How to get started</h2>
-<p>You should read the package-vignettes. They explain how <code>appifyr</code> works and why it works the way it does.</p>
+<ol style="list-style-type: decimal">
+<li>Read <a href="articles/introduction.html">this article</a>.</li>
+<li>Check out <a href="http://retowyss.ocpu.io/sepals-and-petals">Sepals and Petals</a></li>
+</ol>
 </div>
 </div>
 

@@ -12,7 +12,7 @@ fg_to_html(g, id)
 \item{id}{an id}
 }
 \value{
-
+html
 }
 \description{
 Form Group To HTML

@@ -100,7 +100,7 @@ to_r_code <- function(app_dir = "app/website/") {
 #' @importFrom devtools document install
 #' @import roxygen2
 #'
-build_app <- function(app_dir = "app/website/", from_rmd = TRUE) {
+build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
   render_site(input = app_dir)
   if (from_rmd) {
     to_r_code()

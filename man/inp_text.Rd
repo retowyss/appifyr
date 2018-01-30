@@ -2,7 +2,7 @@
 % Please edit documentation in R/form_elements.R
 \name{inp_text}
 \alias{inp_text}
-\title{Text Form Group}
+\title{Text Input Form Group}
 \usage{
 inp_text(label = NULL, width = 4, ...)
 }
@@ -18,11 +18,12 @@ name of the variable}
 a list
 }
 \description{
-Text Form Group
+Text Input Form Group
 }
 \examples{
 inp_text()
 inp_text(label = "Plot Title")
 inp_text(width = 6)
 inp_text(label = "Description", width = 12)
+
 }

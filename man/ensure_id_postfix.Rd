@@ -15,9 +15,3 @@ the postfix or a random postfix
 \description{
 Ensure Id Postfix
 }
-\examples{
-
-ensure_id_postfix("aaaa")
-ensure_id_postfix(NULL)
-
-}

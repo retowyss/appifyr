@@ -6,7 +6,7 @@ authors:
 
 template:
   params:
-    bootswatch: united
+    bootswatch: cosmo
 
 navbar:
   title: "appifyr"
@@ -17,21 +17,22 @@ navbar:
 
 reference:
   - title: "Setup & App Management"
+    desc: Create a new app from a template and build the app from Rmarkdown files.
     contents:
     - new_app
     - build_app
   - title: "Appifying"
-    desc:  Transforms the raw data - mostly cleaning and setting correct levels.
+    desc:  Turn your code into a fully functional app by referencing a function and defining its inputs.
     contents:
     - appify
     - starts_with("inp_")
-  - title: "Data"
+  - title: "Key-Values"
+    desc: Some predifined key-value dataframes to create dropdowns.
     contents:
     - kvs
   - title: "Internals"
     desc: These functions are not available on the user level.
     contents:
-    - check_inputs
     - ensure_id_postfix
     - create_id
     - starts_with("html_")

@@ -1,5 +1,5 @@
 ---
-title: "Introduction to appifyr"
+title: "About appifyr"
 author: "Reto Wyss"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -11,13 +11,13 @@ vignette: >
 
 # Motivation
 
-There currently are two packages that allow useRs to build web apps with R: Shiny and OpenCPU. They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is a more indepentant platform and can be scaled without using the proprietory Shiny Server Pro. 
+There currently are two packages that allow useRs to build web apps with R: Shiny and [OpenCPU](https://www.opencpu.org/). They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is a more indepentant platform and can be scaled without using the proprietory Shiny Server Pro. 
 
 This is where appifyr comes in. It tries to make the OpenCPU engine more accessible for useRs with little to none knowledge of JavaScript and html.  
 
-Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to indentify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then executes the R-function. The R-function's output is then handled by the Javascript callback and displayed to the user.
+Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to indentify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then runs the R-code. The R-function's output is then handled by the Javascript callback and displayed to the user.
 
-This video show a timelapsed workflow.
+This video shows a timelapsed workflow (from R-markdown)
 
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/CAlBD6_T374" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
@@ -29,29 +29,25 @@ First, you need to install `devtools` from CRAN.
 install.packages("devtools")
 ```
 
-Second, install `appifyr`. It has a fair amount of package dependancies in its own right, these will be installed automatically. 
+Second, install `appifyr`. It has a fair amount of package dependencies in its own right, these will be installed automatically. 
 
 ```
 devtools::install_github("retowyss/appifyr")
 ```
 
-Third, install OpenCPU. It too has a bunch of dependancies. If you are using Ubuntu/Debian you might have to install some additional system libraries.
+Third, install OpenCPU. It too has a bunch of dependencies. If you are using Ubuntu/Debian you might have to install some additional system libraries.
 
 ```
 install.packages("opencpu")
 ```
 
-Fourth, you need roxygen2 to create package documentation.
-
-```
-install.packages("roxygen2")
-```
-
 # Working with appifyr
 
-If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is Hadley Wickhams R-Package book. It's a good idea to familiaize yourself with the basics of writing R-package but it's not a requirement to play around with appifyr.
+If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is [Hadley Wickhams R-Package book](http://r-pkgs.had.co.nz/). It's a good idea to familiarize yourself with the basics of writing R-package. It's not a requirement to play around with appifyr, however to create a solid application I recommend devoloping it as a standard R-package. 
 
-You start out by creating a new R-package (project) in RStudio. From here on I will assume you've named your package "MyAppifyrApp". To get set up you run:
+You start out by creating a new R-package (project) in RStudio. From here on I will assume you've named your package "MyAppifyrApp".
+
+Now you can create a new appifyr app with:
 
 ```
 appifyr::new_app()
@@ -62,7 +58,9 @@ This will create and delete some files in your R-package directory. You can navi
 The template is functional right out of the box. You can try it by running:
 
 ```
-appifyr::build_app()
+appifyr::build_app(from_rmd = TRUE)
+
+# Start the app up
 opencpu::ocpu_start_app("MyAppifyrApp")
 ```
 
@@ -79,12 +77,38 @@ some_function <- function(a, b, c) {
   # Return plot!
 }
 
-appify(f = some_function, inps = list_of_inputs)
+appify(f = some_function, inps = list(a = ?, b = ?, c = ?))
 ```
 
-Currently appifyr only supports plot object as return value, but it supports very flexibel input definition - you can learn more in [this article](02-inputs.html).
+Currently appifyr only supports plots for a return value. But it has flexibel input definitions.
 
-The supports for rmarkdown to r-package conversion is experimental. There are some cases where it will not work, e.g. you can't read a file like you normally would nor can you access variables in the global environment. The function needs to be selfcontained.
+The supports for rmarkdown to R-package conversion is experimental. There are some cases where it will not work, e.g. you can't read a file like you normally would nor can you access variables in the global environment. The function needs to be selfcontained.
 
-For more reliable behavior you might want to write your function directly as R-package functions (`R/`) and save your data as `.Rda` files in the package's `data/` directory.
+For more reliable behavior you might want to write your function directly as R-package functions (`R/`) and save your data as `.Rda` files in the package's `data/` directory. You should use the template created by appifyr and delete the code in the Rmarkdown index file.
+
+When writing your functions as package functions in your (`R/`) directory use `build_app()` to build the app and use roxygen2 commenting style. As previously mentioned it is likely that creating apps from Rmarkdown `build_app(from_rmd = TRUE)` code will be discontinued. `from_rmd = FALSE` is the default. 
+
+To learn more about  how to use appifyr head over to __[Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals)__. It's an app created with appifyr and runs on the OpenCPU cloud server. There are a lot of examples. It's also a good idea to have a look at Sepals and Petals code on Github. Its functions are written in R-package style. Feel free to clone it and use it as a template for your own app.  
+
+
+<a href = "http://retowyss.ocpu.io/sepals-and-petals" ><img src = "http://static.reto-wyss.com/appifyr/sepals-and-petals.png" class = "thumbnail"> </a>
+
+Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: [Instructions](https://www.opencpu.org/cloud.html).
+
+# About appifyr's development
+
+I've invested around 100 hours into the development of appifyr - that's spread across writing the actual code (R, JavaScript and html), documenting the code, writing unit tests, writing a package documentation and creating a demo application hosted on the cloud server. 
+
+In the process I've also learned about Travis CI and the code coverage package. On every push Travis checks your R-package by building the package on fresh system. Code coverage helps to ensure that every code branch gets hit by at least one unit test - it can automatically be run after a successful build on Travis.
+
+I was pleased that while creating [Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals) everything worked out flawlessly and I am happy with the result. 
+
+Of course, there are a lot of possibilities where appifyr can be taken in the future. In any event, please note that appifyr's API might change dramatically and any update might break old code. This is where development is heading:
+
+* Add support for more output types: text, tables and code
+* Create more app templates: bookdown, one-page-html and blogdown. 
+* Add a bit more flexibility to the form
+* Remove `from_rmd = TRUE` support
+* Publish to CRAN
+
 

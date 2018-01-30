@@ -6,10 +6,10 @@
 #' @param id html identifier
 #'
 #' @return html
+#'
 #' @export
 #'
-#' @importFrom magrittr %>%
-#' @importFrom purrr map
+#' @importFrom purrr imap
 #' @importFrom htmltools tags
 #'
 appify <- function(f, inps, out = "plot", id = NULL) {
@@ -17,8 +17,7 @@ appify <- function(f, inps, out = "plot", id = NULL) {
   id <- ensure_id_postfix(id)
   inps <- set_label(inps)
 
-  form <- inps %>%
-    imap(~fg_to_html(g = .x, id = paste0(.y, "-",id)))
+  form <- imap(inps, ~ fg_to_html(g = .x, id = paste0(.y, "-", id)))
 
   form <- html_container_form(
     id = paste0("form-", id),
@@ -27,16 +26,13 @@ appify <- function(f, inps, out = "plot", id = NULL) {
     form
   )
 
+  # The output container needs an id as well
   out <- html_container_output(id = paste0("target-", id), height = 600)
 
   jscript <- tags$script(
     type = "text/javascript",
     charset = "utf-8",
-    rplot(
-      id = id,
-      rf = f,
-      json = args_to_json(names(inps), id)
-    )
+    rplot(id = id, rf = f, json = args_to_json(names(inps), id))
   )
 
   tags$div(form, out, jscript)
@@ -52,7 +48,6 @@ appify <- function(f, inps, out = "plot", id = NULL) {
 #' @param ... Any  number of html tags to be inserted into the form body.
 #'
 #' @return html form tag
-#' @export
 #'
 #' @importFrom htmltools tags
 #'
@@ -78,7 +73,6 @@ html_container_form <- function(id, class, button_id, ...) {
 #' @param height The height for the plot
 #'
 #' @return target div for the plot
-#' @export
 #'
 #' @importFrom htmltools div
 #'
@@ -95,12 +89,12 @@ html_container_output <- function(id, height) {
 #' @param g a form group list
 #' @param id an id
 #'
-#' @return
+#' @return html
 #'
 fg_to_html <- function(g, id) {
   f <- switch (g$fg,
-    "text" = fg_text,
-    "number" = fg_number,
+    "text"     = fg_text,
+    "number"   = fg_number,
     "dropdown" = fg_dropdown,
     stop()
   )
@@ -124,11 +118,7 @@ fg_number <- function(g, id) {
     max   = g$opts$to
   )
   label <- tags$label(g$label)
-  tags$div(
-    class = paste0("col-sm-", g$width),
-    label,
-    input
-  )
+  tags$div(class = paste0("col-sm-", g$width), label, input)
 }
 
 #' Translate Form Group List to HTML
@@ -149,11 +139,7 @@ fg_dropdown <- function(g, id) {
     })
   )
   label <- tags$label(g$label)
-  tags$div(
-    class = paste0("col-sm-", g$width),
-    label,
-    input
-  )
+  tags$div(class = paste0("col-sm-", g$width), label, input)
 }
 
 #' Translate Form Group List to HTML
@@ -194,7 +180,7 @@ set_label <- function(inps) {
   inps
 }
 
-#' Text Form Group
+#' Text Input Form Group
 #'
 #' @param label label for the form input - this will default to display the
 #'     name of the variable
@@ -209,6 +195,7 @@ set_label <- function(inps) {
 #' inp_text(label = "Plot Title")
 #' inp_text(width = 6)
 #' inp_text(label = "Description", width = 12)
+#'
 inp_text <- function(label = NULL, width = 4, ...) {
   stopifnot(width %in% 1:12)
   list(
@@ -219,7 +206,7 @@ inp_text <- function(label = NULL, width = 4, ...) {
   )
 }
 
-#' Dropdown Form Group
+#' Dropdown Input Form Group
 #'
 #' @param kv a vector, a list or a dataframe
 #' @inheritParams inp_text
@@ -236,12 +223,13 @@ inp_text <- function(label = NULL, width = 4, ...) {
 #' inp_dropdown(kv)
 #' inp_dropdown(LETTERS, label = "Letters", width = 2)
 #' inp_dropdown(list(n = 1, m = 2, k = 4))
+#'
 inp_dropdown <- function(kv,
                          label = NULL,
                          width = 4,
                          ...) {
   inp <- inp_text(label = label, width = width, ...)
-  if ("list" == class(kv)) {
+  if ("list" %in% class(kv)) {
     stopifnot(length(kv) > 0 & !("" %in% names(kv)))
     kv <- list_to_df(kv)
   } else if ("data.frame" %in% class(kv)) {
@@ -257,7 +245,7 @@ inp_dropdown <- function(kv,
   inp
 }
 
-#' Number Form Group
+#' Number Input Form Group
 #'
 #' @param from a number
 #' @param to  a number
@@ -272,20 +260,20 @@ inp_dropdown <- function(kv,
 #' inp_number()
 #' inp_number(from = 0, to = 1e9)
 #' inp_number(from = 1, to = 7, label = "This Is A Survey")
+#'
 inp_number <- function(from = 0,
                        to = 100,
                        label = NULL,
                        width = 4,
                        ...) {
   inp <- inp_text(label = label, width = width, ...)
+
   stopifnot(!(class(from) == "list" | class(to) == "list"))
   stopifnot(is_scalar_atomic(from) & is_scalar_atomic(to))
   stopifnot(from < to)
+
   inp$fg <- "number"
-  inp$opts <- list(
-    from = as.double(from),
-    to = as.double(to)
-  )
+  inp$opts <- list(from = as.double(from), to = as.double(to))
   inp
 }
 
@@ -295,22 +283,14 @@ inp_number <- function(from = 0,
 #'
 #' @return a dataframe
 #'
-#' @importFrom magrittr %>%
-#' @importFrom purrr imap reduce
+#' @importFrom purrr imap_dfr
 #' @importFrom dplyr bind_rows
 #' @importFrom tibble tibble
 #'
-#' @examples
-#' appifyr:::list_to_df(list(key1 = "value1", "key2" = "value2"))
 list_to_df <- function(x) {
-  x %>%
-    imap(function(.x, .y) {
-      tibble(
-        key = factor_to_chr(.y),
-        value = factor_to_chr(.x)
-      )
-    }) %>%
-    reduce(bind_rows)
+  imap_dfr(x, function(.x, .y) {
+    tibble(key = factor_to_chr(.y), value = factor_to_chr(.x))
+  })
 }
 
 #' Convert List Of Values To Dataframe
@@ -349,6 +329,7 @@ df_to_df <- function(x) {
 #' @examples
 #' appifyr:::factor_to_chr(factor(c("A", "B")))
 #' appifyr:::factor_to_chr(factor(1:12))
+#'
 factor_to_chr <- function(x) {
   if(is.factor(x) | is.character(x)) {
     as.character(x)
@@ -365,7 +346,7 @@ factor_to_chr <- function(x) {
 #' @param id id of the corresponding html elements
 #' @param rf name of the R function
 #' @param json inner json of arguments to the R function
-#' @param err error message (default: "Error in R function call: ")
+#' @param err error message for the javascript alert
 #'
 #' @return java script code
 #'
@@ -391,20 +372,18 @@ rplot <- function(id, rf, json, err = "Error: ") {
 #'
 #' @return json body code,
 #'
-#' @importFrom magrittr %>%
 #' @importFrom readr read_file
 #' @importFrom glue glue
 #'
 arg_to_json <- function(an, id) {
-  system.file("js/glue/json.js", package = "appifyr") %>%
-    read_file() %>%
-    glue(
+    json <- glue(
+      read_file(system.file("js/glue/json.js", package = "appifyr")),
       .open = "<<",
       .close = ">>",
       an = an,
       id = id
-    ) %>%
-    as.character()
+    )
+    as.character(json)
 }
 
 #' Arguments To JSON
@@ -414,13 +393,10 @@ arg_to_json <- function(an, id) {
 #'
 #' @return json body code
 #'
-#' @importFrom magrittr %>%
 #' @importFrom purrr map
 #' @importFrom glue collapse
 #'
 args_to_json <- function(ans, id) {
-  ans %>%
-    map(arg_to_json, id = id) %>%
-    collapse(sep = ",\n") %>%
-    as.character()
+  json_list <- map(ans, arg_to_json, id = id)
+  as.character(collapse(json_list, sep = ",\n"))
 }

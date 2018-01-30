@@ -13,7 +13,7 @@ rplot(id, rf, json, err = "Error: ")
 
 \item{json}{inner json of arguments to the R function}
 
-\item{err}{error message (default: "Error in R function call: ")}
+\item{err}{error message for the javascript alert}
 }
 \value{
 java script code

@@ -2,6 +2,5 @@ urls:
   reference: //retowyss.github.io/appifyr/reference
   article: //retowyss.github.io/appifyr/articles
 articles:
-  inputs: inputs.html
   introduction: introduction.html
 

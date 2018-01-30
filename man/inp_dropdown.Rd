@@ -2,7 +2,7 @@
 % Please edit documentation in R/form_elements.R
 \name{inp_dropdown}
 \alias{inp_dropdown}
-\title{Dropdown Form Group}
+\title{Dropdown Input Form Group}
 \usage{
 inp_dropdown(kv, label = NULL, width = 4, ...)
 }
@@ -20,7 +20,7 @@ name of the variable}
 a list
 }
 \description{
-Dropdown Form Group
+Dropdown Input Form Group
 }
 \examples{
 inp_dropdown(c(1, 3, 7, 42))
@@ -29,4 +29,5 @@ kv <- data.frame(key = c("A", "B"), value = c(1, 2))
 inp_dropdown(kv)
 inp_dropdown(LETTERS, label = "Letters", width = 2)
 inp_dropdown(list(n = 1, m = 2, k = 4))
+
 }

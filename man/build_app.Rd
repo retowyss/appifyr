@@ -4,7 +4,7 @@
 \alias{build_app}
 \title{Build App}
 \usage{
-build_app(app_dir = "app/website/", from_rmd = TRUE)
+build_app(app_dir = "app/website/", from_rmd = FALSE)
 }
 \arguments{
 \item{app_dir}{path to the app (default: app/website/)}
