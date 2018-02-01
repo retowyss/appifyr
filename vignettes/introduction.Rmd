@@ -91,7 +91,7 @@ When writing your functions as package functions in your (`R/`) directory use `b
 To learn more about  how to use appifyr head over to __[Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals)__. It's an app created with appifyr and runs on the OpenCPU cloud server. There are a lot of examples. It's also a good idea to have a look at Sepals and Petals code on Github. Its functions are written in R-package style. Feel free to clone it and use it as a template for your own app.  
 
 
-<a href = "http://retowyss.ocpu.io/sepals-and-petals" ><img src = "http://static.reto-wyss.com/appifyr/sepals-and-petals.png" class = "thumbnail"> </a>
+<a href = "http://retowyss.ocpu.io/sepals-and-petals" ><img src = "https://static.reto-wyss.com/appifyr/sepals-and-petals.png" class = "thumbnail"> </a>
 
 Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: [Instructions](https://www.opencpu.org/cloud.html).
 
