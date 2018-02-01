@@ -82,7 +82,7 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))
 
 Currently appifyr only supports plots for a return value. But it has flexibel input definitions.
 
-The supports for rmarkdown to R-package conversion is experimental. There are some cases where it will not work, e.g. you can't read a file like you normally would nor can you access variables in the global environment. The function needs to be selfcontained.
+The support for Rmarkdown to R-package conversion is experimental. There are some cases where it will not work, e.g. you can't read a file like you normally would nor can you access variables in the global environment. The function needs to be self-contained.
 
 For more reliable behavior you might want to write your function directly as R-package functions (`R/`) and save your data as `.Rda` files in the package's `data/` directory. You should use the template created by appifyr and delete the code in the Rmarkdown index file.
 
