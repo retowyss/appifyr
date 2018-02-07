@@ -95,9 +95,13 @@ To learn more about  how to use appifyr head over to __[Sepals and Petals](http:
 
 Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: [Instructions](https://www.opencpu.org/cloud.html).
 
+# A few words about appifyr's magic
+
+The appify function generates html. When you call appify in your Rmarkdown document the raw html output from appify will be included in the final html document rendered by knitr. You can hide the R-code-chunk if you are not interested in showing the code.
+
 # About appifyr's development
 
-I've invested around 100 hours into the development of appifyr - that's spread across writing the actual code (R, JavaScript and html), documenting the code, writing unit tests, writing a package documentation and creating a demo application hosted on the cloud server. 
+I've invested around 100 hours into the development of appifyr - that's spread across writing the  code (R, JavaScript and html), documenting the code, writing unit tests, writing a package documentation, testing apps, and creating a demo application hosted on the cloud server. 
 
 In the process I've also learned about Travis CI and the code coverage package. On every push Travis checks your R-package by building the package on fresh system. Code coverage helps to ensure that every code branch gets hit by at least one unit test - it can automatically be run after a successful build on Travis.
 

@@ -72,7 +72,7 @@
       <h1>About appifyr</h1>
                         <h4 class="author">Reto Wyss</h4>
             
-            <h4 class="date">2018-02-01</h4>
+            <h4 class="date">2018-02-07</h4>
           </div>
 
     
@@ -130,10 +130,15 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))</code></pre>
 <p><a href="http://retowyss.ocpu.io/sepals-and-petals"><img src="https://static.reto-wyss.com/appifyr/sepals-and-petals.png" class="thumbnail"></a></p>
 <p>Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: <a href="https://www.opencpu.org/cloud.html">Instructions</a>.</p>
 </div>
+<div id="a-few-words-about-appifyrs-magic" class="section level1">
+<h1 class="hasAnchor">
+<a href="#a-few-words-about-appifyrs-magic" class="anchor"></a>A few words about appifyr’s magic</h1>
+<p>The appify function generates html. When you call appify in your Rmarkdown document the raw html output from appify will be included in the final html document rendered by knitr. You can hide the R-code-chunk if you are not interested in showing the code.</p>
+</div>
 <div id="about-appifyrs-development" class="section level1">
 <h1 class="hasAnchor">
 <a href="#about-appifyrs-development" class="anchor"></a>About appifyr’s development</h1>
-<p>I’ve invested around 100 hours into the development of appifyr - that’s spread across writing the actual code (R, JavaScript and html), documenting the code, writing unit tests, writing a package documentation and creating a demo application hosted on the cloud server.</p>
+<p>I’ve invested around 100 hours into the development of appifyr - that’s spread across writing the code (R, JavaScript and html), documenting the code, writing unit tests, writing a package documentation, testing apps, and creating a demo application hosted on the cloud server.</p>
 <p>In the process I’ve also learned about Travis CI and the code coverage package. On every push Travis checks your R-package by building the package on fresh system. Code coverage helps to ensure that every code branch gets hit by at least one unit test - it can automatically be run after a successful build on Travis.</p>
 <p>I was pleased that while creating <a href="http://retowyss.ocpu.io/sepals-and-petals">Sepals and Petals</a> everything worked out flawlessly and I am happy with the result.</p>
 <p>Of course, there are a lot of possibilities where appifyr can be taken in the future. In any event, please note that appifyr’s API might change dramatically and any update might break old code. This is where development is heading:</p>
@@ -156,6 +161,7 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))</code></pre>
 <li><a href="#motivation">Motivation</a></li>
       <li><a href="#installation">Installation</a></li>
       <li><a href="#working-with-appifyr">Working with appifyr</a></li>
+      <li><a href="#a-few-words-about-appifyrs-magic">A few words about appifyr’s magic</a></li>
       <li><a href="#about-appifyrs-development">About appifyr’s development</a></li>
       </ul>
 </div>
