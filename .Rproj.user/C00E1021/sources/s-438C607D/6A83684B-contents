@@ -1,0 +1,32 @@
+---
+title: "appifyr"
+author: "Reto Wyss"
+date: "November 1, 2017"
+---
+
+# appifyr
+
+[![Build Status](https://travis-ci.org/retowyss/appifyr.svg?branch=master)](https://travis-ci.org/retowyss/appifyr)
+[![Coverage status](https://codecov.io/gh/retowyss/appifyr/branch/master/graph/badge.svg)](https://codecov.io/github/retowyss/appifyr?branch=master)
+
+## Write R Get Apps!
+
+__Have you ever wished that creating an app was as easy as calling a function? Now it is!__
+
+1. Write an R function, 
+2. pass it to `appify`, 
+3. specify the inputs. 
+
+Done. There is your app!
+
+> How is this different from Shiny?
+
+Appifyr and Shiny approach building apps from two different points of view. 
+
+* When you use Shiny you start with the goal of creating a specific app. You write R code to achieve that goal. 
+* When you use Appify you start with R code. You create the app to visualize your function.
+
+## How to get started
+
+1. Read [this article](articles/introduction.html).
+2. Check out [Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals)

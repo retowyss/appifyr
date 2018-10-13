@@ -8,14 +8,17 @@
 <title>About appifyr • appifyr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="About appifyr">
+<meta property="og:description" content="">
+<meta name="twitter:card" content="summary">
+<!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 <body>
-    <div class="container template-vignette">
+    <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -24,8 +27,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">appifyr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">appifyr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.1.3</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
@@ -67,24 +74,27 @@
 
       
       </header><div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>About appifyr</h1>
                         <h4 class="author">Reto Wyss</h4>
             
-            <h4 class="date">2018-02-07</h4>
-          </div>
+            <h4 class="date">2018-10-13</h4>
+      
+      
+      <div class="hidden name"><code>introduction.Rmd</code></div>
+
+    </div>
 
     
     
-<div class="contents">
 <div id="motivation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#motivation" class="anchor"></a>Motivation</h1>
-<p>There currently are two packages that allow useRs to build web apps with R: Shiny and <a href="https://www.opencpu.org/">OpenCPU</a>. They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is a more indepentant platform and can be scaled without using the proprietory Shiny Server Pro.</p>
+<p>There currently are two packages that allow useRs to build web apps with R: Shiny and <a href="https://www.opencpu.org/">OpenCPU</a>. They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is an independent platform and can be scaled without using the proprietary Shiny Server Pro.</p>
 <p>This is where appifyr comes in. It tries to make the OpenCPU engine more accessible for useRs with little to none knowledge of JavaScript and html.</p>
-<p>Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to indentify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then runs the R-code. The R-function’s output is then handled by the Javascript callback and displayed to the user.</p>
-<p>This video shows a timelapsed workflow (from R-markdown)</p>
+<p>Appifyr makes it easy to build apps. Appifyr takes package functions or functions in your rmarkdown document (experimental) and turns them into an app. It does this by using JavaScript and html templates. The function arguments will be linked to the html-form input. Appifyr creates html-id-tags to identify the form-input. When you click submit the values are read from the form and a request is sent to the OpenCPU server. The OpenCPU server then runs the R-code. The R-function’s output is then handled by the Javascript callback and displayed to the user.</p>
+<p>This video shows a timelapse workflow (from R-markdown)</p>
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/CAlBD6_T374" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen>
 </iframe>
 </div>
@@ -101,16 +111,16 @@
 <div id="working-with-appifyr" class="section level1">
 <h1 class="hasAnchor">
 <a href="#working-with-appifyr" class="anchor"></a>Working with appifyr</h1>
-<p>If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is <a href="http://r-pkgs.had.co.nz/">Hadley Wickhams R-Package book</a>. It’s a good idea to familiarize yourself with the basics of writing R-package. It’s not a requirement to play around with appifyr, however to create a solid application I recommend devoloping it as a standard R-package.</p>
+<p>If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is <a href="http://r-pkgs.had.co.nz/">Hadley Wickhams R-Package book</a>. It’s a good idea to familiarize yourself with the basics of writing R-package. It’s not a requirement to play around with appifyr, however to create a solid application I recommend developing it as a standard R-package.</p>
 <p>You start out by creating a new R-package (project) in RStudio. From here on I will assume you’ve named your package “MyAppifyrApp”.</p>
 <p>Now you can create a new appifyr app with:</p>
-<pre><code><a href="http://www.rdocumentation.org/packages/appifyr/topics/new_app">appifyr::new_app()</a></code></pre>
-<p>This will create and delete some files in your R-package directory. You can navigate to <code>app/website/</code> and open up the <code>index.Rmd</code> file. There is a working appifyr app embeded in its R-chunk. The template in <code>app/website/</code> is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The <code>.yml</code> file controls how this is done. You can learn more about Rmarkdown websites <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">here</a>.</p>
+<pre><code>appifyr::new_app()</code></pre>
+<p>This will create and delete some files in your R-package directory. You can navigate to <code>app/website/</code> and open up the <code>index.Rmd</code> file. There is a working appifyr app embedded in its R-chunk. The template in <code>app/website/</code> is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The <code>.yml</code> file controls how this is done. You can learn more about Rmarkdown websites <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">here</a>.</p>
 <p>The template is functional right out of the box. You can try it by running:</p>
-<pre><code><a href="http://www.rdocumentation.org/packages/appifyr/topics/build_app">appifyr::build_app(from_rmd = TRUE)
+<pre><code>appifyr::build_app(from_rmd = TRUE)
 
 # Start the app up
-opencpu::ocpu_start_app("MyAppifyrApp")</a></code></pre>
+opencpu::ocpu_start_app("MyAppifyrApp")</code></pre>
 <p>When devolping apps with OpenCPU you might have to hard refresh (Shift+F5) the page in your browser to clear the cache after making changes to the website.</p>
 <p>In the <code>index.Rmd</code> file, you’ll find that there is a single call to an appifyr function - <code>appify</code>.</p>
 <pre><code>some_function &lt;- function(a, b, c) {
@@ -125,7 +135,7 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))</code></pre>
 <p>Currently appifyr only supports plots for a return value. But it has flexibel input definitions.</p>
 <p>The support for Rmarkdown to R-package conversion is experimental. There are some cases where it will not work, e.g. you can’t read a file like you normally would nor can you access variables in the global environment. The function needs to be self-contained.</p>
 <p>For more reliable behavior you might want to write your function directly as R-package functions (<code>R/</code>) and save your data as <code>.Rda</code> files in the package’s <code>data/</code> directory. You should use the template created by appifyr and delete the code in the Rmarkdown index file.</p>
-<p>When writing your functions as package functions in your (<code>R/</code>) directory use <code><a href="../reference/build_app.html">build_app()</a></code> to build the app and use roxygen2 commenting style. As previously mentioned it is likely that creating apps from Rmarkdown <code><a href="../reference/build_app.html">build_app(from_rmd = TRUE)</a></code> code will be discontinued. <code>from_rmd = FALSE</code> is the default.</p>
+<p>When writing your functions as package functions in your (<code>R/</code>) directory use <code>build_app()</code> to build the app and use roxygen2 commenting style. As previously mentioned it is likely that creating apps from Rmarkdown <code>build_app(from_rmd = TRUE)</code> code will be discontinued. <code>from_rmd = FALSE</code> is the default.</p>
 <p>To learn more about how to use appifyr head over to <strong><a href="http://retowyss.ocpu.io/sepals-and-petals">Sepals and Petals</a></strong>. It’s an app created with appifyr and runs on the OpenCPU cloud server. There are a lot of examples. It’s also a good idea to have a look at Sepals and Petals code on Github. Its functions are written in R-package style. Feel free to clone it and use it as a template for your own app.</p>
 <p><a href="http://retowyss.ocpu.io/sepals-and-petals"><img src="https://static.reto-wyss.com/appifyr/sepals-and-petals.png" class="thumbnail"></a></p>
 <p>Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: <a href="https://www.opencpu.org/cloud.html">Instructions</a>.</p>
@@ -149,7 +159,6 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))</code></pre>
 <li>Remove <code>from_rmd = TRUE</code> support</li>
 <li>Publish to CRAN</li>
 </ul>
-</div>
 </div>
   </div>
 
@@ -175,11 +184,13 @@ appify(f = some_function, inps = list(a = ?, b = ?, c = ?))</code></pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
 </div>
+
+  
 
   </body>
 </html>

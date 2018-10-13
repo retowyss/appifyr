@@ -1,6 +1,8 @@
+pandoc: 1.19.2.1
+pkgdown: 1.1.0
+pkgdown_sha: ~
+articles: []
 urls:
   reference: //retowyss.github.io/appifyr/reference
   article: //retowyss.github.io/appifyr/articles
-articles:
-  introduction: introduction.html
 
