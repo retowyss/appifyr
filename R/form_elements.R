@@ -403,9 +403,9 @@ arg_to_json <- function(an, id) {
 #' @return json body code
 #'
 #' @importFrom purrr map
-#' @importFrom glue collapse
+#' @importFrom stringr str_c
 #'
 args_to_json <- function(ans, id) {
   json_list <- map(ans, arg_to_json, id = id)
-  as.character(collapse(json_list, sep = ",\n"))
+  as.character(str_c(json_list, sep = ",\n"))
 }

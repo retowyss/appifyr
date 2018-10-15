@@ -67,12 +67,13 @@ to_r_code <- function(app_dir = "app/website/") {
     glue("#' @import {package}", package = .) %>%
     reduce( ~ glue("{.x}\n{.y}"))
 
-  r_code <- app_rmd %>%
+  code_part <- app_rmd %>%
     map(extract_r_functions) %>%
     flatten() %>%
     flatten() %>%
-    as_vector() %>%
-    tibble(code = .) %>%
+    as_vector()
+
+  r_code <- tibble(code = code_part) %>%
     mutate(title = str_extract(code, "[a-zA-Z\\.]{1}.*? ") %>%
              str_replace("_", " ") %>%
              str_to_title()) %>%
