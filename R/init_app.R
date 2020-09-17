@@ -45,7 +45,7 @@ new_app <- function(template = "website") {
 #' @importFrom readr read_file write_file
 #' @importFrom dplyr mutate
 #'
-to_r_code <- function(app_dir = "app/website/") {
+to_r_code <- function(app_dir = "app/website") {
   app_rmd <- grab_app_rmd(app_dir = app_dir)
 
   roxygen_skeleton <- read_file(system.file("txt/roxygen_skeleton.txt",
