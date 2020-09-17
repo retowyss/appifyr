@@ -53,7 +53,7 @@ Now you can create a new appifyr app with:
 appifyr::new_app()
 ```
 
-This will create and delete some files in your R-package directory. You can navigate to `app/website/` and open up the `index.Rmd` file. There is a working appifyr app embedded in its R-chunk. The template in `app/website/` is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The `.yml` file controls how this is done. You can learn more about Rmarkdown websites [here](http://rmarkdown.rstudio.com/rmarkdown_websites.html).
+This will create and delete some files in your R-package directory. You can navigate to `app/website` and open up the `index.Rmd` file. There is a working appifyr app embedded in its R-chunk. The template in `app/website` is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The `.yml` file controls how this is done. You can learn more about Rmarkdown websites [here](http://rmarkdown.rstudio.com/rmarkdown_websites.html).
 
 The template is functional right out of the box. You can try it by running:
 
