@@ -6,8 +6,6 @@
 #'
 #' @return a random id
 #'
-#' @importFrom purrr reduce
-#'
 create_id <- function(n = 32) {
   reduce(sample(c(letters, LETTERS), n, replace = T), paste0)
 }
@@ -17,8 +15,6 @@ create_id <- function(n = 32) {
 #' @param postfix charchter when set by user else NULL
 #'
 #' @return the postfix or a random postfix
-#'
-#' @importFrom purrr is_null is_scalar_atomic
 #'
 ensure_id_postfix <- function(postfix) {
   stopifnot(is_null(postfix) | is_scalar_atomic(postfix) & nchar(postfix) > 0)

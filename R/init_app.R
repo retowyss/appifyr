@@ -11,9 +11,6 @@
 #' @return project directory is set up
 #' @export
 #'
-#' @importFrom magrittr %>%
-#' @importFrom readr read_file write_file
-#'
 new_app <- function(template = "website") {
   write_file("^app$\n", ".Rbuildignore", append = TRUE)
   dir.create("inst/www", recursive = TRUE)
@@ -36,14 +33,6 @@ new_app <- function(template = "website") {
 #' @param app_dir the appifyr app location
 #'
 #' @return R/your_r_code.R file
-#'
-#' @importFrom magrittr %>%
-#' @importFrom purrr map reduce flatten as_vector pmap
-#' @importFrom tibble tibble
-#' @importFrom stringr str_extract_all str_extract str_replace str_to_title
-#' @importFrom glue glue
-#' @importFrom readr read_file write_file
-#' @importFrom dplyr mutate
 #'
 to_r_code <- function(app_dir = "app/website") {
   app_rmd <- grab_app_rmd(app_dir = app_dir)
@@ -97,9 +86,6 @@ to_r_code <- function(app_dir = "app/website") {
 #' @return invisible
 #' @export
 #'
-#' @importFrom rmarkdown render_site
-#' @importFrom devtools document install
-#' @import roxygen2
 #'
 build_app <- function(app_dir = "app/website", from_rmd = FALSE) {
   render_site(input = app_dir)
@@ -120,9 +106,6 @@ build_app <- function(app_dir = "app/website", from_rmd = FALSE) {
 #'
 #' @return list of Rmd contents
 #'
-#' @importFrom readr read_file
-#' @importFrom purrr map
-#'
 grab_app_rmd <- function(app_dir) {
   map(paste0(app_dir, dir(app_dir, pattern = ".*\\.Rmd$")), read_file)
 }
@@ -135,8 +118,6 @@ grab_app_rmd <- function(app_dir) {
 #'
 #' @return list of R functions
 #'
-#' @importFrom stringr str_extract_all
-#'
 extract_r_functions <- function(rmd) {
   rfrx <- "\\n[a-zA-Z\\.]{1}.*(\\<\\-|\\=)[:blank:]*function\\(.*\\)[:blank:]*(\\n|.|)*?\\n\\}"
   str_extract_all(rmd, pattern = rfrx)
@@ -147,8 +128,6 @@ extract_r_functions <- function(rmd) {
 #' @param pkg "library(pkg)" or "require(pkg)"
 #'
 #' @return a package name, e.g. dplyr
-#'
-#' @importFrom stringr str_extract
 #'
 extract_pkg_names <- function(pkg) {
   pkgrx <- "(?<=(require|library)\\([\"\']{0,1})[a-zA-Z0-9]*(?=[\"\']{0,1}\\))"

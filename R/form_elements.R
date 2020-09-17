@@ -11,9 +11,6 @@
 #'
 #' @export
 #'
-#' @importFrom purrr imap
-#' @importFrom htmltools tags
-#'
 #' @examples
 #' # Assume the function my_function has arguments x, y:
 #' # my_function <- function(x, y) {
@@ -58,8 +55,6 @@ appify <- function(f, inps, out = "plot", id = NULL) {
 #'
 #' @return html form tag
 #'
-#' @importFrom htmltools tags
-#'
 html_container_form <- function(id, class, button_id, ...) {
   tags$form(
     id = id,
@@ -82,8 +77,6 @@ html_container_form <- function(id, class, button_id, ...) {
 #' @param height The height for the plot
 #'
 #' @return target div for the plot
-#'
-#' @importFrom htmltools div
 #'
 html_container_output <- function(id, height) {
   div(
@@ -116,8 +109,6 @@ fg_to_html <- function(g, id) {
 #'
 #' @return html
 #'
-#' @importFrom htmltools tags
-#'
 fg_number <- function(g, id) {
   input <- tags$input(
     id    = id,
@@ -135,9 +126,6 @@ fg_number <- function(g, id) {
 #' @inheritParams fg_text
 #'
 #' @return html
-#'
-#' @importFrom purrr pmap
-#' @importFrom htmltools tags
 #'
 fg_dropdown <- function(g, id) {
   input <- tags$select(
@@ -157,8 +145,6 @@ fg_dropdown <- function(g, id) {
 #' @param id an id
 #'
 #' @return html
-#'
-#' @importFrom htmltools tags
 #'
 fg_text<- function(g, id) {
   input <- tags$input(
@@ -223,8 +209,6 @@ inp_text <- function(label = NULL, width = 4, ...) {
 #' @return a list
 #' @export
 #'
-#' @importFrom purrr is_atomic
-#'
 #' @examples
 #' inp_dropdown(c(1, 3, 7, 42))
 #' inp_dropdown(names(iris), label = "Select Iris Variable")
@@ -263,8 +247,6 @@ inp_dropdown <- function(kv,
 #' @return a list
 #' @export
 #'
-#' @importFrom purrr is_scalar_atomic
-#'
 #' @examples
 #' inp_number()
 #' inp_number(from = 0, to = 1e9)
@@ -292,10 +274,6 @@ inp_number <- function(from = 0,
 #'
 #' @return a dataframe
 #'
-#' @importFrom purrr imap_dfr
-#' @importFrom dplyr bind_rows
-#' @importFrom tibble tibble
-#'
 list_to_df <- function(x) {
   imap_dfr(x, function(.x, .y) {
     tibble(key = factor_to_chr(.y), value = factor_to_chr(.x))
@@ -308,8 +286,6 @@ list_to_df <- function(x) {
 #'
 #' @return a dataframe
 #'
-#' @importFrom tibble tibble
-#'
 atomic_to_df <- function(x) {
   x <- factor_to_chr(x)
   tibble(key = x, value = x)
@@ -321,8 +297,6 @@ atomic_to_df <- function(x) {
 #'
 #' @return a dataframe
 #'
-#' @importFrom tibble tibble
-#'
 df_to_df <- function(x) {
   tibble(key = factor_to_chr(x$key), value = factor_to_chr(x$value))
 }
@@ -332,8 +306,6 @@ df_to_df <- function(x) {
 #' @param x a vector
 #'
 #' @return a vector
-#'
-#' @importFrom dplyr if_else
 #'
 #' @examples
 #' appifyr:::factor_to_chr(factor(c("A", "B")))
@@ -359,10 +331,6 @@ factor_to_chr <- function(x) {
 #'
 #' @return java script code
 #'
-#' @importFrom magrittr %>%
-#' @importFrom readr read_file
-#' @importFrom glue glue
-#'
 #' @examples
 #' appifyr:::rplot("xGkrZCuuI", "rnorm", "n : 5")
 #' appifyr:::rplot("xGkrZCuuI", "rnorm", "n : 1000, mean : 100, sd : 15")
@@ -381,9 +349,6 @@ rplot <- function(id, rf, json, err = "Error: ") {
 #'
 #' @return json body code,
 #'
-#' @importFrom readr read_file
-#' @importFrom glue glue
-#'
 arg_to_json <- function(an, id) {
     json <- glue(
       read_file(system.file("js/glue/json.js", package = "appifyr")),
@@ -401,9 +366,6 @@ arg_to_json <- function(an, id) {
 #' @param id html identifier
 #'
 #' @return json body code
-#'
-#' @importFrom purrr map
-#' @importFrom stringr str_c
 #'
 args_to_json <- function(ans, id) {
   json_list <- map(ans, arg_to_json, id = id)
