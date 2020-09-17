@@ -7,7 +7,7 @@
 grab_app_rmd(app_dir)
 }
 \arguments{
-\item{app_dir}{path to the app (default: app/website/)}
+\item{app_dir}{path to the app (default: app/website)}
 }
 \value{
 list of Rmd contents

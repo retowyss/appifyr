@@ -115,7 +115,7 @@
 <p>You start out by creating a new R-package (project) in RStudio. From here on I will assume you’ve named your package “MyAppifyrApp”.</p>
 <p>Now you can create a new appifyr app with:</p>
 <pre><code>appifyr::new_app()</code></pre>
-<p>This will create and delete some files in your R-package directory. You can navigate to <code>app/website/</code> and open up the <code>index.Rmd</code> file. There is a working appifyr app embedded in its R-chunk. The template in <code>app/website/</code> is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The <code>.yml</code> file controls how this is done. You can learn more about Rmarkdown websites <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">here</a>.</p>
+<p>This will create and delete some files in your R-package directory. You can navigate to <code>app/website</code> and open up the <code>index.Rmd</code> file. There is a working appifyr app embedded in its R-chunk. The template in <code>app/website</code> is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The <code>.yml</code> file controls how this is done. You can learn more about Rmarkdown websites <a href="http://rmarkdown.rstudio.com/rmarkdown_websites.html">here</a>.</p>
 <p>The template is functional right out of the box. You can try it by running:</p>
 <pre><code>appifyr::build_app(from_rmd = TRUE)
 

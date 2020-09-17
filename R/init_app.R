@@ -90,7 +90,7 @@ to_r_code <- function(app_dir = "app/website") {
 
 #' Build App
 #'
-#' @param app_dir path to the app (default: app/website/)
+#' @param app_dir path to the app (default: app/website)
 #' @param from_rmd should the app be created based on functions defined in the
 #'     Rmardown document?
 #'
@@ -101,7 +101,7 @@ to_r_code <- function(app_dir = "app/website") {
 #' @importFrom devtools document install
 #' @import roxygen2
 #'
-build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
+build_app <- function(app_dir = "app/website", from_rmd = FALSE) {
   render_site(input = app_dir)
   if (from_rmd) {
     to_r_code()
@@ -116,7 +116,7 @@ build_app <- function(app_dir = "app/website/", from_rmd = FALSE) {
 
 #' Grab App Rmd
 #'
-#' @param app_dir path to the app (default: app/website/)
+#' @param app_dir path to the app (default: app/website)
 #'
 #' @return list of Rmd contents
 #'
