@@ -9,7 +9,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-# Motivation
+## Motivation
 
 There currently are two packages that allow useRs to build web apps with R: Shiny and [OpenCPU](https://www.opencpu.org/). They both have some drawbacks. While Shiny makes it simple to create inputs and outputs, it requires the useR to write Shiny specific code. On the other hand, OpenCPU does not provide any boilerplate functions to create input and output elements. So, useRs need to write JavaScript and html to create a functional app. However, OpenCPU is an independent platform and can be scaled without using the proprietary  Shiny Server Pro. 
 
@@ -21,7 +21,7 @@ This video shows a timelapse workflow (from R-markdown)
 
 <iframe width="100%" height="480" src="https://www.youtube.com/embed/CAlBD6_T374" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-# Installation
+## Installation
 
 First, you need to install `devtools` from CRAN.
 
@@ -41,7 +41,7 @@ Third, install OpenCPU. It too has a bunch of dependencies. If you are using Ubu
 install.packages("opencpu")
 ```
 
-# Working with appifyr
+## Working with appifyr
 
 If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is [Hadley Wickhams R-Package book](http://r-pkgs.had.co.nz/). It's a good idea to familiarize yourself with the basics of writing R-package. It's not a requirement to play around with appifyr, however to create a solid application I recommend developing it as a standard R-package. 
 
@@ -95,22 +95,8 @@ To learn more about  how to use appifyr head over to __[Sepals and Petals](http:
 
 Publishing your own app to the OpenCPU cloud server is simple. You only need to set a webhook in your Github repo: [Instructions](https://www.opencpu.org/cloud.html).
 
-# A few words about appifyr's magic
+## A few words about appifyr's magic
 
 The appify function generates html. When you call appify in your Rmarkdown document the raw html output from appify will be included in the final html document rendered by knitr. You can hide the R-code-chunk if you are not interested in showing the code.
-
-# About appifyr's development
-
-In the process I've learned about Travis CI and the code coverage package. On every push Travis checks your R-package by building the package on fresh system. Code coverage helps to ensure that every code branch gets hit by at least one unit test - it can automatically be run after a successful build on Travis.
-
-I was pleased that while creating [Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals) everything worked out flawlessly and I am happy with the result. 
-
-Of course, there are a lot of possibilities where appifyr can be taken in the future. In any event, please note that appifyr's API might change dramatically and any update might break old code. This is where development is heading:
-
-* Add support for more output types: text, tables and code
-* Create more app templates: bookdown, one-page-html and blogdown. 
-* Add a bit more flexibility to the form
-* Remove `from_rmd = TRUE` support
-* Publish to CRAN
 
 
