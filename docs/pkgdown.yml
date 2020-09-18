@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   introduction: introduction.html
-last_built: 2020-09-18T02:48Z
+last_built: 2020-09-18T06:19Z
 urls:
   reference: //retowyss.github.io/appifyr/reference
   article: //retowyss.github.io/appifyr/articles
