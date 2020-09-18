@@ -18,6 +18,7 @@
 #' # }
 #' appify(f = "my_function", inps = list(x = inp_number(), y = inp_number()))
 #'
+
 appify <- function(f, inps, out = "plot", id = NULL) {
   stopifnot(out == "plot")
   id <- ensure_id_postfix(id)
@@ -35,13 +36,12 @@ appify <- function(f, inps, out = "plot", id = NULL) {
   # The output container needs an id as well
   out <- html_container_output(id = paste0("target-", id), height = 600)
 
-  jscript <- tags$script(
-    type = "text/javascript",
-    charset = "utf-8",
-    rplot(id = id, rf = f, json = args_to_json(names(inps), id))
-  )
+  js_inner <- rplot(id = id, rf = f, json = args_to_json(names(inps), id)) %>%
+    paste0(collapse = "\n")
 
-  tags$div(form, out, jscript)
+  jscript <- str_interp('<script type = "text/javascript">${js_inner}</script>')
+
+  htmltools::tags$div(form, out, htmltools::HTML(jscript))
 }
 
 #' App Form
@@ -369,5 +369,5 @@ arg_to_json <- function(an, id) {
 #'
 args_to_json <- function(ans, id) {
   json_list <- map(ans, arg_to_json, id = id)
-  as.character(str_c(json_list, sep = ",\n"))
+  as.character(paste0(json_list, collapse = ",\n"))
 }

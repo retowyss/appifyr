@@ -6,7 +6,7 @@ authors:
 
 template:
   params:
-    bootswatch: cosmo
+    bootswatch: paper
 
 navbar:
   title: "appifyr"
@@ -19,7 +19,6 @@ reference:
   - title: "Setup & App Management"
     desc: Create a new app from a template and build the app from Rmarkdown files.
     contents:
-    - new_app
     - build_app
   - title: "Appifying"
     desc:  Turn your code into a fully functional app by referencing a function and defining its inputs.
@@ -39,10 +38,6 @@ reference:
     - rplot
     - set_label
     - starts_with("fg_")
-    - extract_r_functions
-    - extract_pkg_names
-    - extract_pkgs
-    - to_r_code
     - contains("_to_")
 
 

@@ -7,6 +7,9 @@
     <loc>//retowyss.github.io/appifyr/reference/appify.html</loc>
   </url>
   <url>
+    <loc>//retowyss.github.io/appifyr/reference/appifyr-package.html</loc>
+  </url>
+  <url>
     <loc>//retowyss.github.io/appifyr/reference/args_to_json.html</loc>
   </url>
   <url>
@@ -28,15 +31,6 @@
     <loc>//retowyss.github.io/appifyr/reference/ensure_id_postfix.html</loc>
   </url>
   <url>
-    <loc>//retowyss.github.io/appifyr/reference/extract_pkgs.html</loc>
-  </url>
-  <url>
-    <loc>//retowyss.github.io/appifyr/reference/extract_pkg_names.html</loc>
-  </url>
-  <url>
-    <loc>//retowyss.github.io/appifyr/reference/extract_r_functions.html</loc>
-  </url>
-  <url>
     <loc>//retowyss.github.io/appifyr/reference/factor_to_chr.html</loc>
   </url>
   <url>
@@ -50,9 +44,6 @@
   </url>
   <url>
     <loc>//retowyss.github.io/appifyr/reference/fg_to_html.html</loc>
-  </url>
-  <url>
-    <loc>//retowyss.github.io/appifyr/reference/grab_app_rmd.html</loc>
   </url>
   <url>
     <loc>//retowyss.github.io/appifyr/reference/html_container_form.html</loc>
@@ -76,16 +67,10 @@
     <loc>//retowyss.github.io/appifyr/reference/list_to_df.html</loc>
   </url>
   <url>
-    <loc>//retowyss.github.io/appifyr/reference/new_app.html</loc>
-  </url>
-  <url>
     <loc>//retowyss.github.io/appifyr/reference/rplot.html</loc>
   </url>
   <url>
     <loc>//retowyss.github.io/appifyr/reference/set_label.html</loc>
-  </url>
-  <url>
-    <loc>//retowyss.github.io/appifyr/reference/to_r_code.html</loc>
   </url>
   <url>
     <loc>//retowyss.github.io/appifyr/articles/introduction.html</loc>

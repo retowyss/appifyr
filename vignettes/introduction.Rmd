@@ -43,42 +43,7 @@ install.packages("opencpu")
 
 ## Working with appifyr
 
-If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is [Hadley Wickhams R-Package book](http://r-pkgs.had.co.nz/). It's a good idea to familiarize yourself with the basics of writing R-package. It's not a requirement to play around with appifyr, however to create a solid application I recommend developing it as a standard R-package. 
-
-You start out by creating a new R-package (project) in RStudio. From here on I will assume you've named your package "MyAppifyrApp".
-
-Now you can create a new appifyr app with:
-
-```
-appifyr::new_app()
-```
-
-This will create and delete some files in your R-package directory. You can navigate to `app/website` and open up the `index.Rmd` file. There is a working appifyr app embedded in its R-chunk. The template in `app/website` is a R-markdown website - a set of Rmarkdown files that will be rendered into a fully functional website. The `.yml` file controls how this is done. You can learn more about Rmarkdown websites [here](http://rmarkdown.rstudio.com/rmarkdown_websites.html).
-
-The template is functional right out of the box. You can try it by running:
-
-```
-appifyr::build_app(from_rmd = TRUE)
-
-# Start the app up
-opencpu::ocpu_start_app("MyAppifyrApp")
-```
-
-When devolping apps with OpenCPU you might have to hard refresh (Shift+F5) the page in your browser to clear the cache after making changes to the website.
-
-In the `index.Rmd` file, you'll find that there is a single call to an appifyr function - `appify`.
-
-```
-some_function <- function(a, b, c) {
-  # Your R code here
-  # ...
-  # ...
-  
-  # Return plot!
-}
-
-appify(f = some_function, inps = list(a = ?, b = ?, c = ?))
-```
+If you want to create an app with appifyr you will be creating an R-package. Appifyr just writes Javascript and html for you. The app runs on the OpenCPU server. OpenCPU can only make package functions available. There are excellent resources out there to learn about R-package, my favorite one is [Hadley Wickhams R-Package book](http://r-pkgs.had.co.nz/). It's a good idea to familiarize yourself with the basics of writing R-package. 
 
 Currently appifyr only supports plots for a return value. But it has flexibel input definitions.
 
@@ -86,9 +51,11 @@ The support for Rmarkdown to R-package conversion is experimental. There are som
 
 For more reliable behavior you might want to write your function directly as R-package functions (`R/`) and save your data as `.Rda` files in the package's `data/` directory. You should use the template created by appifyr and delete the code in the Rmarkdown index file.
 
-When writing your functions as package functions in your (`R/`) directory use `build_app()` to build the app and use roxygen2 commenting style. As previously mentioned it is likely that creating apps from Rmarkdown `build_app(from_rmd = TRUE)` code will be discontinued. `from_rmd = FALSE` is the default. 
+When writing your functions as package functions in your (`R/`) directory use `build_app()` to build the app and use roxygen2 commenting style.
 
-To learn more about  how to use appifyr head over to __[Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals)__. It's an app created with appifyr and runs on the OpenCPU cloud server. There are a lot of examples. It's also a good idea to have a look at Sepals and Petals code on Github. Its functions are written in R-package style. Feel free to clone it and use it as a template for your own app.  
+### Clone the demo repo
+
+To learn more about  how to use appifyr head over to __[Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals)__. It's an app created with appifyr and runs on the OpenCPU cloud server. There are a lot of examples. It's also a good idea to have a look at Sepals and Petals code on Github. Its functions are written in R-package style. Feel free to __clone it and use it as a template for your own app__.  
 
 
 <a href = "http://retowyss.ocpu.io/sepals-and-petals" ><img src = "https://static.reto-wyss.com/appifyr/sepals-and-petals.png" class = "thumbnail"> </a>

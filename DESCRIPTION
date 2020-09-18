@@ -1,14 +1,13 @@
 Package: appifyr
 Type: Package
 Title: appifyr: Write R Get Apps!
-Version: 0.1.3
+Version: 0.1.99
 Authors@R: person("Reto", "Wyss", role = c("aut", "cre", "cph"), email = "reto.wyss.ch@gmail.com")
-Description: appifyr enables you to build apps from function definitions.
-    Output from appify can be rendered in an Rmd file or may be saved to
-    a file as html. To run apps created with appifyr you'll need OpenCPU.
+Description: appifyr turns R packages into webapps. 
+    To run apps created with appifyr you need OpenCPU.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Depends: R (>= 3.0.0)
+Depends: R (>= 4.0.0)
 Imports:
     htmltools,
     magrittr,
@@ -22,10 +21,12 @@ Imports:
     dplyr,
     tidyr,
     methods,
-    tibble
+    tibble,
+    fs
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.1
 Suggests:
+    opencpu,
     testthat,
     covr,
     knitr

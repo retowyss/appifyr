@@ -26,7 +26,7 @@ To get started go to:
 2. [Demo App - Sepals and Petals](http://retowyss.ocpu.io/sepals-and-petals/www/)
 
 
-## 0 to 100 in 6 Lines of Code
+## Getting Started
 
 ```
 install.packages("devtools")
@@ -39,21 +39,10 @@ To run the app you will need OpenCPU.
 install.packages("opencpu")
 ```
 
-Open up a new package (project) in RStudio and give it a name (e.g. MyApp). Then on the console run:
+Then clone the SepalsAndPetals (retowyss/sepals-and-petals) demo application and open the project.
 
 ```
-appifyr::new_app()
-```
-
-This will create a bunch of files. The `app` directory is where your app lives. There is a standard Rmarkdown website template included. Build your app (the template app) with:
-
-```
-appifyr::build_app(from_rmd = TRUE)
-```
-
-And run it with:
-
-```
-opencpu::ocpu_start_app("MyApp")
+appifyr::build_app()
+opencpu::ocpu_start_app("SepalsAndPetals")
 ```
 

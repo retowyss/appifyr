@@ -1,13 +1,13 @@
 #' @description
 #' To learn more about appifyr, start with the vignettes:
 #' `browseVignettes(package = "appifyr")`
-#' @useDynLib appifyr, .registration = TRUE
 #' @keywords internal
 #' @import roxygen2
 #' @import purrr
 #' @import stringr
+#' @import fs
 #' @importFrom magrittr %>%
-#' @importFrom htmltools tags div
+#' @importFrom htmltools tags div HTML
 #' @importFrom rmarkdown render_site
 #' @importFrom devtools document install
 #' @importFrom tibble tibble
