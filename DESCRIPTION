@@ -3,10 +3,15 @@ Package: appifyr
 Title: appifyr: Write R Get Apps!
 Version: 0.1.99
 Authors@R: 
-    person(given = "Reto",
-           family = "Wyss",
-           role = c("aut", "cre", "cph"),
-           email = "reto.wyss.ch@gmail.com")
+    c(person(given = "Reto",
+             family = "Wyss",
+             role = c("aut", "cre", "cph"),
+             email = "reto.wyss.ch@gmail.com"),
+      person(given = "Michael",
+             family = "Rustler",
+             role = "ctb",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")))
 Description: appifyr turns R packages into webapps.  To run apps created
     with appifyr you need OpenCPU.
 License: MIT + file LICENSE
