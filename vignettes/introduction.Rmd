@@ -23,7 +23,7 @@ This video shows a timelapse workflow (from R-markdown)
 
 ## Installation
 
-First, you need to install `devtools` from CRAN.
+First, you need to install `remotes` from CRAN.
 
 ```
 install.packages("remotes")
