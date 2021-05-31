@@ -1,34 +1,40 @@
-Package: appifyr
 Type: Package
+Package: appifyr
 Title: appifyr: Write R Get Apps!
 Version: 0.1.99
-Authors@R: person("Reto", "Wyss", role = c("aut", "cre", "cph"), email = "reto.wyss.ch@gmail.com")
-Description: appifyr turns R packages into webapps. 
-    To run apps created with appifyr you need OpenCPU.
+Authors@R: 
+    person(given = "Reto",
+           family = "Wyss",
+           role = c("aut", "cre", "cph"),
+           email = "reto.wyss.ch@gmail.com")
+Description: appifyr turns R packages into webapps.  To run apps created
+    with appifyr you need OpenCPU.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Depends: R (>= 4.0.0)
+Depends: 
+    R (>= 4.0.0)
 Imports:
+    devtools,
+    dplyr,
+    fs,
+    glue,
     htmltools,
     magrittr,
+    methods,
     purrr,
     readr,
-    glue,
-    stringr,
-    devtools,
-    roxygen2,
     rmarkdown,
-    dplyr,
-    tidyr,
-    methods,
+    roxygen2,
+    stringr,
     tibble,
-    fs
+    tidyr
+Suggests:
+    covr,
+    knitr,
+    opencpu,
+    remotes,
+    testthat
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-Suggests:
-    opencpu,
-    testthat,
-    covr,
-    knitr, 
-    remotes
-VignetteBuilder: knitr
