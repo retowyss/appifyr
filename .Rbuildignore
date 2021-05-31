@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 ^docs$
 ^codecov\.yml$
+^\.github$
