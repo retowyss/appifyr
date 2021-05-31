@@ -30,8 +30,8 @@ To get started go to:
 ## Getting Started
 
 ```
-install.packages("devtools")
-devtools::install_github("retowyss/appifyr")
+install.packages("remotes")
+remotes::install_github("retowyss/appifyr")
 ```
 
 To run the app you will need OpenCPU.

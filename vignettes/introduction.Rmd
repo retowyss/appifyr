@@ -26,13 +26,13 @@ This video shows a timelapse workflow (from R-markdown)
 First, you need to install `devtools` from CRAN.
 
 ```
-install.packages("devtools")
+install.packages("remotes")
 ```
 
 Second, install `appifyr`. It has a fair amount of package dependencies in its own right, these will be installed automatically. 
 
 ```
-devtools::install_github("retowyss/appifyr")
+remotes::install_github("retowyss/appifyr")
 ```
 
 Third, install OpenCPU. It too has a bunch of dependencies. If you are using Ubuntu/Debian you might have to install some additional system libraries.

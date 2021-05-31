@@ -9,7 +9,6 @@
 #' @importFrom magrittr %>%
 #' @importFrom htmltools tags div HTML
 #' @importFrom rmarkdown render_site
-#' @importFrom devtools document install
 #' @importFrom tibble tibble
 #' @importFrom glue glue
 #' @importFrom readr read_file write_file

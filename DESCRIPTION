@@ -29,5 +29,6 @@ Suggests:
     opencpu,
     testthat,
     covr,
-    knitr
+    knitr, 
+    remotes
 VignetteBuilder: knitr
