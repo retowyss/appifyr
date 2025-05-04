@@ -1,0 +1,9 @@
+---
+title: "About"
+author: "Reto Wyss"
+---
+
+```{r}
+library(appifyr)
+```
+

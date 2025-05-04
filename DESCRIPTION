@@ -1,0 +1,52 @@
+Type: Package
+Package: appifyr
+Title: Create Web Applications from R Functions
+Version: 0.2.0
+Authors@R: 
+    c(person(given = "Reto",
+             family = "Wyss",
+             role = c("aut", "cre", "cph"),
+             email = "reto.wyss.ch@gmail.com",
+             comment = c(ORCID = "0009-0003-4150-4504")),
+      person(given = "Michael",
+             family = "Rustler",
+             role = "ctb",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")))
+Description: A framework for converting R functions into interactive web applications
+    using OpenCPU as a backend. 'appifyr' bridges the gap between R's analytical capabilities
+    and web interfaces by automatically generating HTML forms for function parameters,
+    connecting these inputs to OpenCPU API calls, and displaying the function outputs.
+    It allows R users with minimal JavaScript knowledge to create interactive web applications.
+License: MIT + file LICENSE
+URL: https://github.com/retowyss/appifyr, https://retowyss.github.io/appifyr
+BugReports: https://github.com/retowyss/appifyr/issues
+Depends: 
+    R (>= 4.1.0)
+Imports:
+    devtools,
+    dplyr,
+    fs,
+    glue,
+    htmltools,
+    magrittr,
+    methods,
+    purrr,
+    readr,
+    rmarkdown,
+    roxygen2,
+    stringr,
+    tibble
+Suggests:
+    tidyr,
+    covr,
+    knitr,
+    opencpu,
+    remotes,
+    testthat (>= 3.0.0)
+VignetteBuilder: 
+    knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2

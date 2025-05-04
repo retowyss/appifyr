@@ -1,0 +1,47 @@
+url: https://retowyss.github.io/appifyr
+
+authors:
+  Reto Wyss:
+    href: https://reto-wyss.com
+  Michael Rustler:
+    href: https://mrustl.de
+
+template:
+  bootstrap: 5
+  params:
+    bootswatch: journal
+
+navbar:
+  title: "appifyr"
+  type: default
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/retowyss/appifyr
+
+reference:
+  - title: "Setup & App Management"
+    desc: Create a new app from a template and build the app from Rmarkdown files.
+    contents:
+    - build_app
+    - print.appifyr_app
+  - title: "Appifying"
+    desc:  Turn your code into a fully functional app by referencing a function and defining its inputs.
+    contents:
+    - appify
+    - starts_with("inp_")
+  - title: "Key-Values"
+    desc: Some predifined key-value dataframes to create dropdowns.
+    contents:
+    - kvs
+  - title: "Internals"
+    desc: These functions are not available on the user level.
+    contents:
+    - ensure_id_postfix
+    - create_id
+    - starts_with("html_")
+    - rplot
+    - set_label
+    - starts_with("fg_")
+    - contains("_to_")
+
+

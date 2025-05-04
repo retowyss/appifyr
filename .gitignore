@@ -1,0 +1,12 @@
+^\.Rproj\.user$
+^.*\.Rproj$
+^\.Rhistory$
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+inst/doc
+vignettes/*.html
+vignettes/*.R
+.DS_Store
+codecov.yml

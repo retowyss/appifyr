@@ -1,0 +1,30 @@
+---
+title: "Home"
+author: "Reto Wyss"
+---
+
+```{r}
+library(appifyr)
+library(ggplot2)
+iris_clustering <- function(color_1, color_2, color_3) {
+  clusters <- kmeans(iris[, 1:4], centers = 3, nstart = 3)
+  
+  iris_clustered <- cbind(iris, clusters = factor(clusters$cluster))
+  
+  ggplot(iris_clustered, aes(x = Sepal.Width, y = Petal.Width, color = clusters)) +
+    geom_point() +
+    scale_color_manual(values = c(color_1, color_2, color_3)) +
+    ggtitle("Kmeans Clustering") + 
+    theme_minimal()
+}
+
+appify(
+  f = "iris_clustering", 
+  inps = list(
+    color_1 = inp_dropdown(kvs$color),
+    color_2 = inp_dropdown(kvs$color),
+    color_3 = inp_dropdown(kvs$color)
+  )
+)
+```
+

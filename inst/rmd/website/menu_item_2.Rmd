@@ -1,0 +1,9 @@
+---
+title: "Menu Item 2"
+author: "Reto Wyss"
+---
+
+```{r}
+library(appifyr)
+```
+

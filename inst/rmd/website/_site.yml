@@ -1,0 +1,27 @@
+name: "appifyr"
+output_dir: "../../inst/www/"
+navbar:
+  title: "appifyr"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Menu"
+      icon: fa-user
+      menu:
+        - text: "Menu Item 1"
+          href: menu_item_1.html
+        - text: "Menu Item 2"
+          href: menu_item_2.html
+  right:
+    - text: "About"
+      href: about.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    include:
+      after_body: "html/after_body.html"
+      in_header: "html/in_header.html"
+      before_body: "html/before_body.html"
+    css: "css/app_styles.css"
+exclude: ["html"]
